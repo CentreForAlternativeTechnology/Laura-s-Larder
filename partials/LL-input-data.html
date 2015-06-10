@@ -1,0 +1,164 @@
+
+<div id="LL-input-data">
+
+    <div ng-switch="step" ng-animate="'wave'">
+        <div class="input_data_window">
+            <!-- Input user info -->
+                       
+            <div class="input_user_info" ng-switch-when="user_info">
+                <div class="introduction_window_box">
+                    <h1 class="introduction_heading">{{'A_LITTLE_INFORMATION_ABOUT_YOU' | translate}}</h1>
+                    <div class="introduction_form">
+                        <h2>{{'ARE_YOU?' | translate}}</h2>
+                        <label><input type="radio" name="user_gender" ng-model="userInfo.gender" value="male" />&nbsp;&nbsp;{{'MALE' | translate}}</label>
+                        <label><input type="radio" name="user_gender" ng-model="userInfo.gender" value="female" />&nbsp;&nbsp;{{'FEMALE' | translate}}</label>
+                        <h2>{{'HOW_OLD_ARE_YOU' | translate}}</h2>
+                        <label><input type="radio" name="user_age_group" ng-model="userInfo.age_group" value='7-10'/> &nbsp;&nbsp;7-10 {{'YEARS' | translate}}</label>
+                        <label><input type="radio" name="user_age_group" ng-model="userInfo.age_group" value='11-14'/> 11-14 {{'YEARS' | translate}}</label>
+                        <label><input type="radio" name="user_age_group" ng-model="userInfo.age_group" value='15-18'/> 15-18 {{'YEARS' | translate}}</label>
+                        <label><input type="radio" name="user_age_group" ng-model="userInfo.age_group" value='19-50'/> 19-50 {{'YEARS' | translate}}</label>
+                        <label><input type="radio" name="user_age_group" ng-model="userInfo.age_group" value='51-59'/> 51-59 {{'YEARS' | translate}}</label>
+                        <label><input type="radio" name="user_age_group" ng-model="userInfo.age_group" value='60-64'/> 60-64 {{'YEARS' | translate}}</label>
+                        <label><input type="radio" name="user_age_group" ng-model="userInfo.age_group" value='65-74'/> 65-74 {{'YEARS' | translate}}</label>
+                        <label><input type="radio" name="user_age_group" ng-model="userInfo.age_group" value='74+'/> 74+ {{'YEARS' | translate}}</label>
+                    </div>
+                    <div class="woman_helper_bubble woman_helper_bubble_user_info">
+                        <p class="introduction_woman_text">{{'THIS_HELPS_ME' | translate}}</p>
+                    </div>
+                    <img class="introduction_woman_helper" src="img/woman-helper.png" width="130px" />
+                    <button class="LL-button-to-the-right" ng-click="handleNextInputWindow()">{{'DONE' | translate}}</button>
+                </div>
+            </div> 
+            <!-- End input user info -->
+
+            <!-- Add product to meal -->
+            <div class="input_show_larder" ng-switch-when="show_larder" >
+                <img class="larder_picture" src="img/LL_input_add_product_to_meal-background.jpg">
+                <div class="larder_to_show">
+                    <p ng-class="{'larder_selected': isLarderToShow('breakfast')}" class="cursor_points" ng-click="setLarderToShow('breakfast')">{{'BREAKFAST' | translate}}</p>
+                    <p ng-class="{'larder_selected': isLarderToShow('lunch')}" class="cursor_points" ng-click="setLarderToShow('lunch')">{{'LUNCH' | translate}}</p>
+                    <p ng-class="{'larder_selected': isLarderToShow('dinner')}" class="cursor_points" ng-click="setLarderToShow('dinner')">{{'DINNER' | translate}}</p>
+                    <p ng-class="{'larder_selected': isLarderToShow('snacks_and_drinks')}" class="cursor_points" ng-click="setLarderToShow('snacks_and_drinks')">{{'SNACKS_AND_DRINKS' | translate}}</p>                    
+                </div>
+                <div class="day_text_in_larder" ng-class="{day_text_in_larder_cym: languaje === 'cym'}"><p>{{day | uppercase | translate}} - <span ng-if="meal !== 'snacks_and_drinks'">{{meal | uppercase | translate}}</span><span ng-if="meal === 'snacks_and_drinks'">{{'SNACKS_AND_DRINKS_SHORT' | translate}}</span></p></div>
+                <div class="table_for_products">
+                    <img ng-repeat="(index, product_in_repeat) in weeklyMeals[day][meal] track by product_in_repeat.indexInTable" ng-click="handleNextInputWindow({reason: 'remove_product', product_index: index})" src="img/{{product_in_repeat.graphic}}" class="cursor_points" />
+                    <!--<div ng-repeat="(index, product_in_repeat) in weeklyMeals[day][meal] track by product_in_repeat.indexInTable" ng-click="handleNextInputWindow({reason: 'remove_product', product_index: index})">{{product_in_repeat}}</div>-->
+                </div>
+                <!--<div class="larder_shelf_left_1"><img ng-repeat="category_in_repeat in getLarder(larder_to_show) | categoryInShelf:1" ng-click="handleNextInputWindow({reason: 'category_selected', category: category_in_repeat})" ng-magnifiable category-toopen='{{category_in_repeat}}' src="img/{{category_in_repeat.graphic}}"  tip="{{category_in_repeat.key}}" /></div>-->
+                <!--<div class="larder_shelf_left_1"><img ng-repeat="category_in_repeat in getLarder(larder_to_show) | categoryInShelf:1" ng-click="handleNextInputWindow({reason: 'category_selected', category: category_in_repeat})" ng-magnifiable src="img/{{category_in_repeat.graphic}}"  tip="{{category_in_repeat.key}}" /></div>-->
+                <div class="larder_shelf_left_1"><img imageonload ng-repeat="category_in_repeat in getLarder(larder_to_show) | categoryInShelf:1" ng-magnifiable onclickevent="handleNextInputWindow({reason: 'category_selected', category: category_in_repeat})" src="img/{{category_in_repeat.graphic}}"  tip="{{category_in_repeat.key | translate}}" class="cursor_points" /></div>
+                <div class="larder_shelf_left_2"><img imageonload ng-repeat="category_in_repeat in getLarder(larder_to_show) | categoryInShelf:2" ng-magnifiable onclickevent="handleNextInputWindow({reason: 'category_selected', category: category_in_repeat})" src="img/{{category_in_repeat.graphic}}"  tip="{{category_in_repeat.key | translate}}" class="cursor_points" /></div>
+                <div class="larder_shelf_left_3"><img imageonload ng-repeat="category_in_repeat in getLarder(larder_to_show) | categoryInShelf:3" ng-magnifiable onclickevent="handleNextInputWindow({reason: 'category_selected', category: category_in_repeat})" src="img/{{category_in_repeat.graphic}}"  tip="{{category_in_repeat.key | translate}}" class="cursor_points" /></div>
+                <div class="larder_shelf_left_4"><img imageonload ng-repeat="category_in_repeat in getLarder(larder_to_show) | categoryInShelf:4" ng-magnifiable onclickevent="handleNextInputWindow({reason: 'category_selected', category: category_in_repeat})" src="img/{{category_in_repeat.graphic}}"  tip="{{category_in_repeat.key | translate}}" class="cursor_points" /></div>
+                <div class="larder_shelf_left_5"><img imageonload ng-repeat="category_in_repeat in getLarder(larder_to_show) | categoryInShelf:5" ng-magnifiable onclickevent="handleNextInputWindow({reason: 'category_selected', category: category_in_repeat})" src="img/{{category_in_repeat.graphic}}"  tip="{{category_in_repeat.key | translate}}" class="cursor_points" /></div>
+                <div class="larder_shelf_left_6"><img imageonload ng-repeat="category_in_repeat in getLarder(larder_to_show) | categoryInShelf:6" ng-magnifiable onclickevent="handleNextInputWindow({reason: 'category_selected', category: category_in_repeat})" src="img/{{category_in_repeat.graphic}}"  tip="{{category_in_repeat.key | translate}}" class="cursor_points" /></div>
+                <div class="larder_shelf_right_1"><img imageonload ng-repeat="category_in_repeat in getLarder(larder_to_show) | categoryInShelf:7" ng-magnifiable onclickevent="handleNextInputWindow({reason: 'category_selected', category: category_in_repeat})" src="img/{{category_in_repeat.graphic}}"  tip="{{category_in_repeat.key | translate}}" class="cursor_points" /></div>
+                <div class="larder_shelf_right_2"><img imageonload ng-repeat="category_in_repeat in getLarder(larder_to_show) | categoryInShelf:8" ng-magnifiable onclickevent="handleNextInputWindow({reason: 'category_selected', category: category_in_repeat})" src="img/{{category_in_repeat.graphic}}"  tip="{{category_in_repeat.key | translate}}" class="cursor_points" /></div>
+                <div class="larder_shelf_right_3"><img imageonload ng-repeat="category_in_repeat in getLarder(larder_to_show) | categoryInShelf:9" ng-magnifiable onclickevent="handleNextInputWindow({reason: 'category_selected', category: category_in_repeat})" src="img/{{category_in_repeat.graphic}}"  tip="{{category_in_repeat.key | translate}}" class="cursor_points" /></div>
+                <div class="larder_shelf_right_4"><img imageonload ng-repeat="category_in_repeat in getLarder(larder_to_show) | categoryInShelf:10" ng-magnifiable onclickevent="handleNextInputWindow({reason: 'category_selected', category: category_in_repeat})" src="img/{{category_in_repeat.graphic}}"  tip="{{category_in_repeat.key | translate}}" class="cursor_points" /></div>
+                <div class="larder_shelf_right_5"><img imageonload ng-repeat="category_in_repeat in getLarder(larder_to_show) | categoryInShelf:11" ng-magnifiable onclickevent="handleNextInputWindow({reason: 'category_selected', category: category_in_repeat})" src="img/{{category_in_repeat.graphic}}"  tip="{{category_in_repeat.key | translate}}" class="cursor_points" /></div>
+                <div class="larder_shelf_right_6"><img imageonload ng-repeat="category_in_repeat in getLarder(larder_to_show) | categoryInShelf:12" ng-magnifiable onclickevent="handleNextInputWindow({reason: 'category_selected', category: category_in_repeat})" src="img/{{category_in_repeat.graphic}}"  tip="{{category_in_repeat.key | translate}}" class="cursor_points" /></div>
+                <div class='show_larder_help' ng-hide="hide_show_larder_help_div === true" >
+                    <div class="box">
+                        <div class="show_larder_help_text" ng-class="{show_larder_help_text_cym: languaje === 'cym'}" translate="{{'SHOW_LARDER_HELP_TEXT'}}"></div>
+                        <div class="woman_helper_bubble show_larder_woman_help_text" translate="{{'SHOW_LARDER_WOMAN_HELP_TEXT'}}" translate-values="{meal:'{{meal | uppercase | translate | lowercase}}'}"></div>
+                        <img class="show_larder_woman_helper" src="img/woman-helper.png" />
+                        <button class="close" ng-click="hide_show_larder_help_div = true" type="button">×</button>
+                    </div>
+                </div>
+                <div class="search_box"><!-- this box is reseted when clicking in one of the food items in the list, see directive "reset-searchbox -->
+                    <input type="search" ng-model="search_word" placeholder="Search food item...">
+                </div>
+                <div class="search_results" ng-show="search_word.length > 2">
+                    <ul>
+                        <li reset-searchbox ng-repeat="product_in_repeat in products_list | findProduct:search_word" class="cursor_points" ng-click="handleNextInputWindow({reason: 'product_selected_form_search', product: product_in_repeat})">
+                            <!--<li  ng-repeat="product_in_repeat in products_list | findProduct:search_word" class="cursor_points" ng-click="handleNextInputWindow({reason: 'product_selected_form_search', product: product_in_repeat})">-->
+                            {{ product_in_repeat.key | translate }}
+                        </li>
+                    </ul>
+                </div>
+                <div class="input_show_larder_btns">
+                    <a class="LL-button" ng-show="weeklyMeals[day][meal].length > 0" ng-click="handleNextInputWindow({reason: 'meal_completed'})" translate='COMPLETE_MEAL'></a>
+                    <a class="LL-button" ng-show="weeklyMeals[day][meal].length === 0" ng-click="handleNextInputWindow({reason: 'meal_completed'})" translate='NOTHING_THIS_MEAL'><!-- <span ng-if="day === 'monday' && meal !== 'snacks_and_drinks'">and carry on with Monday {{nextMeal(meal)}}</span>--></a>
+                </div>
+
+
+                <!--<div ><p>This is the list of categories, We don´t want to show this but i leave it just in case. Click on one</p><p ng-repeat="category_in_repeat in getLarder(larder_to_show)" ng-click="handleNextInputWindow({reason: 'category_selected', category: category_in_repeat})"> {{category_in_repeat.key}}</p></div>-->
+                <!--<div ><p>This is the list of categories, We don´t want to show this but i leave it just in case. Click on one</p><p ng-repeat="category_in_repeat in list_of_category_graphics"> {{category_in_repeat.key}}, {{category_in_repeat.name}}</p></div>-->
+            </div> 
+            <!-- End Add product to meal -->
+
+
+            <!-- Display weekly table -->
+            <div class="display_weekly_table" ng-switch-when="display_weekly_table" >
+                <table class="weeklyMealsTableClass">
+                    <tr><th>&nbsp;</th><th>{{'MONDAY' |translate}}</th><th>{{'TUESDAY' |translate}}</th><th>{{'WEDNESDAY' |translate}}</th><th>{{'THURSDAY' |translate}}</th><th>{{'FRIDAY' |translate}}</th><th>{{'SATURDAY' |translate}}</th><th>{{'SUNDAY' |translate}}</th></tr>
+                    <tr class="dark_row">
+                        <td class="meal_column">{{'BREAKFAST' |translate}}</td>
+                        <td><p ng-if="completed_meals['monday']['breakfast']"><img src="img/tick_for_table.png" /></p></td>
+                        <td><p ng-if="completed_meals['tuesday']['breakfast']"><img src="img/tick_for_table.png" /></p></td>
+                        <td><p ng-if="completed_meals['wednesday']['breakfast']"><img src="img/tick_for_table.png" /></p></td>
+                        <td><p ng-if="completed_meals['thursday']['breakfast']"><img src="img/tick_for_table.png" /></p></td>
+                        <td><p ng-if="completed_meals['friday']['breakfast']"><img src="img/tick_for_table.png" /></p></td>
+                        <td><p ng-if="completed_meals['saturday']['breakfast']"><img src="img/tick_for_table.png" /></p></td>
+                        <td><p ng-if="completed_meals['sunday']['breakfast']"><img src="img/tick_for_table.png" /></p></td>
+                    </tr>
+                    <tr class="light_row">
+                        <td class="meal_column">{{'LUNCH' |translate}}</td>
+                        <td><p ng-if="completed_meals['monday']['lunch']"><img src="img/tick_for_table.png" /></p></td>
+                        <td><p ng-if="completed_meals['tuesday']['lunch']"><img src="img/tick_for_table.png" /></p></td>
+                        <td><p ng-if="completed_meals['wednesday']['lunch']"><img src="img/tick_for_table.png" /></p></td>
+                        <td><p ng-if="completed_meals['thursday']['lunch']"><img src="img/tick_for_table.png" /></p></td>
+                        <td><p ng-if="completed_meals['friday']['lunch']"><img src="img/tick_for_table.png" /></p></td>
+                        <td><p ng-if="completed_meals['saturday']['lunch']"><img src="img/tick_for_table.png" /></p></td>
+                        <td><p ng-if="completed_meals['sunday']['lunch']"><img src="img/tick_for_table.png" /></p></td>
+                    <tr class="dark_row">
+                        <td class="meal_column">{{'DINNER' |translate}}</td>
+                        <td><p ng-if="completed_meals['monday']['dinner']"><img src="img/tick_for_table.png" /></p></td>
+                        <td><p ng-if="completed_meals['tuesday']['dinner']"><img src="img/tick_for_table.png" /></p></td>
+                        <td><p ng-if="completed_meals['wednesday']['dinner']"><img src="img/tick_for_table.png" /></p></td>
+                        <td><p ng-if="completed_meals['thursday']['dinner']"><img src="img/tick_for_table.png" /></p></td>
+                        <td><p ng-if="completed_meals['friday']['dinner']"><img src="img/tick_for_table.png" /></p></td>
+                        <td><p ng-if="completed_meals['saturday']['dinner']"><img src="img/tick_for_table.png" /></p></td>
+                        <td><p ng-if="completed_meals['sunday']['dinner']"><img src="img/tick_for_table.png" /></p></td>
+                    </tr>
+                    <tr class="light_row">
+                        <td class="meal_column">{{'SNACKS_AND_DRINKS_SHORT' |translate}}</td>
+                        <td><p ng-if="completed_meals['monday']['snacks_and_drinks']"><img src="img/tick_for_table.png" /></p></td>
+                        <td><p ng-if="completed_meals['tuesday']['snacks_and_drinks']"><img src="img/tick_for_table.png" /></p></td>
+                        <td><p ng-if="completed_meals['wednesday']['snacks_and_drinks']"><img src="img/tick_for_table.png" /></p></td>
+                        <td><p ng-if="completed_meals['thursday']['snacks_and_drinks']"><img src="img/tick_for_table.png" /></p></td>
+                        <td><p ng-if="completed_meals['friday']['snacks_and_drinks']"><img src="img/tick_for_table.png" /></p></td>
+                        <td><p ng-if="completed_meals['saturday']['snacks_and_drinks']"><img src="img/tick_for_table.png" /></p></td>
+                        <td><p ng-if="completed_meals['sunday']['snacks_and_drinks']"><img src="img/tick_for_table.png" /></p></td>
+                    </tr>
+                </table>
+                <div class="woman_helper_bubble woman_helper_bubble_first_day_complete"  ng-class="{woman_helper_bubble_first_day_complete_cym: languaje === 'cym'}" ng-if="helper_step === 'finishing_first_day'" translate="{{'CONGRATULATIONS_FIRST_DAY'}}">
+                </div>
+                <div class="woman_helper_bubble woman_helper_bubble_first_day_complete" ng-if="helper_step === 'another_meal_completed'" translate="{{'CONGRATULATIONS_ANOTHER_MEAL_COMPLETED'}}">
+                </div>
+                <div class="woman_helper_bubble woman_helper_bubble_weekly_table_complete" ng-if="allMealsCompleted() === true && helper_step !== 'loading_diet'" translate="{{'CONGRATULATIONS_WEEKLY_TABLE_COMPLETE'}}">
+                </div>
+                <div class="woman_helper_bubble woman_helper_bubble_first_day_complete" ng-if="helper_step === 'loading_diet'" translate="WELCOME_BACK">
+                </div>                
+                <img class="introduction_woman_helper" src="img/woman-helper.png" width="130px" />
+                <div class="display_weekly_table_btn">
+                    <button class="LL-button" ng-click="handleNextInputWindow({reason: 'save'})">{{'SAVE' | translate}}</button>
+                    <button class="LL-button" href="#/LL-results" ng-if="allMealsCompleted() === false" ng-click="handleNextInputWindow({reason: 'skip_to_results'})">{{'SKIP' | translate}}</button>
+                    <button class="LL-button-to-the-right" ng-if="allMealsCompleted() === false" ng-click="handleNextInputWindow({reason: 'continue_filling_out_the_table'})">{{'CONTINUE' | translate}} <!--({{day}} {{meal}})--></button>
+                    <button class="LL-button-to-the-right" ng-if="allMealsCompleted() === true" ng-click="handleNextInputWindow({reason: 'skip_to_results'})">{{'GO_TO_RESULTS' | translate}}</button>
+                </div>            
+            </div>
+            <!-- End Display weekly table -->
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+</div>

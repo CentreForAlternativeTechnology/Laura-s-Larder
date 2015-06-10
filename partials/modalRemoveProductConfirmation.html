@@ -1,0 +1,8 @@
+<div class="box">
+    <h3>{{'REMOVE_PRODUCT' | translate}}</h3>
+    <p translate="{{'DO_YOU_REALLY_WANT_TO_REMOVE'}}" translate-values="{product:'{{product.key | translate | lowercase}}',meal:'{{meal | uppercase | translate | lowercase}}',day:'{{day | uppercase | translate | lowercase}}'}"></p>
+    <div class='buttons'>
+        <button class='LL-button' ng-click='$close()'>{{'CANCEL' | translate}}</button>
+        <button class='LL-button' ng-click="handleNextInputWindow({reason: 'remove_product_confirmed', index_of_product_to_remove: product_index})">{{'YES_REMOVE_PRODUCT' | translate}}</button>
+    </div>
+</div>

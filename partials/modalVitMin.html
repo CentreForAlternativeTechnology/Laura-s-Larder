@@ -1,0 +1,44 @@
+
+<div class="box">
+    <div ng-repeat="vitmin in ['FOLT','NIAC','RIBO','THIA','VITB12','VITB6','VITC','CA','CU','FE','I','K','MG','P','SE','ZN']" ng-if='vitmin_info_step === vitmin'>
+        <h1 translate="GHG_EMISSIONS_PER_RDA_FOR" translate-values="{'macronutrient': vitmin}"></h1>
+        <table translate="{{'VITMIN_' + vitmin + '_TABLE'}}"></table>
+        <p>{{'NUMBERS_OF_PORTION_NEEDED' | translate}}</p>
+        <p>{{'MACRON_NOTES' |translate}}</p>
+        <img class="woman_helper_vitmin" src="img/woman-helper.png" />
+        <div class="woman_helper_bubble woman_helper_bubble_vitmin_1" ng-class="{woman_helper_bubble_vitmin_1_cym: languaje === 'cym'}"><p class="woman_text_vitmin" translate="{{'VITMIN_' + vitmin}}"></p></div>
+        <div class="woman_helper_bubble woman_helper_bubble_vitmin_2"><p class="woman_text_vitmin" translate="VARIATION_IS_IMPORTANT"></p></div>
+        <div class="lowering_your_emissions-buttons"> 
+            <button class="LL-button-to-the-left" ng-click="$close()">{{'BACK' | translate}}</button>
+            <!--<button class="LL-button-to-the-right" ng-click="handleNextResults({reason: 'next'})">{{'NEXT_GHADR' | translate}}</button>-->
+        </div>
+    </div>
+
+</div>
+<div class="lateral_menu">
+    
+    <ul>
+        <li class="cursor_points" ng-click="setVitMin_step('FOLT')" translate="FOLT"></li>
+        <li class="cursor_points" ng-click="setVitMin_step('NIAC')" translate="NIAC"></li>
+        <li class="cursor_points" ng-click="setVitMin_step('RIBO')" translate="RIBO"></li>
+        <li class="cursor_points" ng-click="setVitMin_step('THIA')" translate="THIA"></li>
+        <li class="cursor_points" ng-click="setVitMin_step('VITB12')" translate="VITB12"></li>
+        <li class="cursor_points" ng-click="setVitMin_step('VITB6')" translate="VITB6"></li>
+        <li class="cursor_points" ng-click="setVitMin_step('VITC')" translate="VITC"></li>
+        <p>&nbsp;</p>
+        <li class="cursor_points" ng-click="setVitMin_step('CA')" translate="CA"></li>
+        <li class="cursor_points" ng-click="setVitMin_step('CU')" translate="CU"></li>
+        <li class="cursor_points" ng-click="setVitMin_step('FE')" translate="FE"></li>
+        <li class="cursor_points" ng-click="setVitMin_step('I')" translate="I"></li>
+        <li class="cursor_points" ng-click="setVitMin_step('K')" translate="K"></li>
+        <li class="cursor_points" ng-click="setVitMin_step('MG')" translate="MG"></li>
+        <li class="cursor_points" ng-click="setVitMin_step('P')" translate="P"></li>
+        <li class="cursor_points" ng-click="setVitMin_step('SE')" translate="SE"></li>
+        <li class="cursor_points" ng-click="setVitMin_step('ZN')" translate="ZN"></li>
+
+
+
+
+    </ul>
+
+</div>

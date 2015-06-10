@@ -1,0 +1,22 @@
+<div class="copy-meal-to-other-day">
+    <div class="box">
+        <h4>{{'DO_YOU_EAT_THE_SAME_FOR' |translate}} {{meal_for_shortcut | uppercase | translate | lowercase}} {{'ANY_OTHER_DAY?' | translate}}</h4>
+        <div class="check-every">
+            <p check-everyday class="cursor_points">{{'EVERYDAY' | translate}}</p>  
+            <p check-everyweekday class="cursor_points">{{'EVERY_WEEKDAY' | translate}}</p>
+        </div>
+        <div class="days-to-check">
+            <p ng-class="{meal_complete: completed_meals.monday[meal_for_shortcut]}"><input type="checkbox" id="checkbox-monday" ng-model="copy_to_day.monday">&nbsp;&nbsp;&nbsp;{{'MONDAY' | translate}}</p>
+            <p ng-class="{meal_complete: completed_meals.tuesday[meal_for_shortcut]}"><input type="checkbox" id="checkbox-tuesday" ng-model="copy_to_day.tuesday">&nbsp;&nbsp;&nbsp;{{'TUESDAY' | translate}}</p>
+            <p ng-class="{meal_complete: completed_meals.wednesday[meal_for_shortcut]}"><input type="checkbox" id="checkbox-wednesday" ng-model="copy_to_day.wednesday">&nbsp;&nbsp;&nbsp;{{'WEDNESDAY' | translate}}</p>
+            <p ng-class="{meal_complete: completed_meals.thursday[meal_for_shortcut]}"><input type="checkbox" id="checkbox-thursday" ng-model="copy_to_day.thursday">&nbsp;&nbsp;&nbsp;{{'THURSDAY' | translate}}</p>
+            <p ng-class="{meal_complete: completed_meals.friday[meal_for_shortcut]}"><input type="checkbox" id="checkbox-friday" ng-model="copy_to_day.friday">&nbsp;&nbsp;&nbsp;{{'FRIDAY' | translate}}</p>
+            <p ng-class="{meal_complete: completed_meals.saturday[meal_for_shortcut]}"><input type="checkbox" id="checkbox-saturday" ng-model="copy_to_day.saturday">&nbsp;&nbsp;&nbsp;{{'SATURDAY' | translate}}</p>
+            <p ng-class="{meal_complete: completed_meals.sunday[meal_for_shortcut]}"><input type="checkbox" id="checkbox-sunday" ng-model="copy_to_day.sunday">&nbsp;&nbsp;&nbsp;{{'SUNDAY' | translate}}</p>
+        </div>
+       
+        <button class="LL-button-to-the-right" ng-click="$close()">OK</button>        
+    </div>
+</div>
+
+

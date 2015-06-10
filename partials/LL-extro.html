@@ -1,0 +1,45 @@
+
+<div id="LL-introduction">
+    <div class="introduction_window">
+        <!--<img ng-src="img/{{steps[step]}}.jpg" />-->
+        <img ng-if="steps[step] !== 'LL extro-about' && languaje === 'en'" ng-src="img/LL extro-{{step + 1}}.jpg" />
+        <img ng-if="steps[step] !== 'LL extro-about' && languaje === 'cym'" ng-src="img/LL extro Cym-{{step + 1}}.jpg" />
+        <div class="extro-about" ng-if="steps[step] === 'LL extro-about'">
+            <!-- Only in English  -->
+            <h2>About Laura’s Larder</h2>
+            <p><strong>Graphic Designer:</strong> John Urry</p>
+            <p><strong>Software Developer:</strong> Carlos Alonso Gabiz&oacute;n</p>
+            <p>For the Zero Carbon Britain (ZCB) project, here at the <a href="http://www.cat.org.uk/index.html" target="_blank">Centre for Alternative Technology</a> (CAT), <!-- These could be hyperlinked too!! -->we designed an average diet that was low in greenhouse gas (GHG) emissions and nutritionally healthy - it was very different to the current UK average diet. It turns out that the best way we have of reducing our food-related emissions is simply to choose to buy and eat different things. However, we know that people are different - they have different current diets and will be prepared to make different changes to their diets.</p>
+            <p>&nbsp;</p>
+            <p>In our new food report, &lsquo;People, Plate and Planet: The impact of dietary choices on health, greenhouse gas emissions and land use<!-- Hyperlink when available. -->&rsquo;, I had the opportunity to explore the impacts of different types of diets, ranging from high meat and dairy to vegan, with many variations in between. The report allowed a more<!-- Here I mean more detailed than the stuff we did for ZCB (first paragraph)????? Happy for it to be deleted if it doesn’t make sense.  --> detailed exploration into dietary impacts today and modelled the land use implications of each of these diets, as well as the effects of waste reduction and food origin.</p>
+            <p>But as we all like to eat different things and in varying amounts, it seemed fitting to come up with a way to help people explore their own diets and attempt to make some positive changes for themselves. To do this we have created Laura&#39;s Larder!</p>
+            <p>It is important to recognise, however, that Laura&rsquo;s Larder only focuses on two key impacts of the food system: how food affects our health and how it contributes to climate change through the release of GHG emissions. These are two very important components for us and our environment, but they are not the only things we should consider. Other factors include: the amount of land used or cleared; the amount of food wasted; and the impacts on biodiversity.</p>
+            <h2>References for Laura&rsquo;s Larder</h2>
+            <p>The Laura&rsquo;s Larder tool is an extension of the research done for CATs &lsquo;<a href="http://zerocarbonbritain.org/index.php/zcb-latest-report" target="_blank">Zero Carbon Britain: rethinking the future</a>&rsquo; <!-- Add hyperlink: http://zerocarbonbritain.org/index.php/zcb-latest-report -->report. As such, the methodology is the same as the <a href="http://http://zerocarbonbritain.org/index.php/zcb-latest-report/zcb-methodology/item/114" target="_blank">methodology for the food and diets section</a> <!-- Add hyperlink to: http://zerocarbonbritain.org/index.php/zcb-latest-report/zcb-methodology/item/114 -->of the report.</p>
+            <p>Additional data was collected for the portion sizes and nutritional recommendations within the tool. Details are available on request.</p>
+            <h2>Acknowledgments</h2>
+            <p>I would like to thank John Urry for his excellent graphic design work and Carlos Alonso Gabiz&oacute;n for bringing the project to life with his software development skills. I would also like to thank both of them for their invaluable input and dedication to this project.</p>
+            <p>I would also like to thank Paul Allen and my other colleagues in the ZCB team and here at CAT for their encouragement and enthusiasm during this project.</p>
+            <p>Finally, I would like to acknowledge the support of the Jam Today organisation and the Network for Social Change, without whose generous funding the creation of Laura&rsquo;s Larder would not have been possible.</p>
+            <h2>Health disclaimer</h2>
+            <p>The nutritional values for foods provided within Laura&rsquo;s Larder are approximate. Recommended intakes are based on average needs and should not be relied upon as medical advice. If you are concerned about your dietary health please seek advice from a qualified health care professional.</p>
+            <h2>About the Zero Carbon Britain project</h2>
+            <p>Zero Carbon Britain is an initiative of the Centre for Alternative Technology. The aim of the ZCB project is to demonstrate that integrated and technically feasible solutions to the climate problem do exist, in order to support and inspire the requisite action to achieve a positive zero carbon future.</p>
+            <h2>About the Centre for Alternative Technology</h2>
+            <p>Established almost 40 years ago, the Centre for Alternative Technology is a leading research and educational charity demonstrating practical solutions for sustainability. CAT aims to inform, inspire and enable people and society to achieve positive change. CAT offers a wide range of practical and academic courses up to postgraduate level and a unique range of educational services for school groups, universities and educators. CAT also offers a free information service, backed by consultancy advice, and has published a wide range of books on sustainable technologies. CAT&rsquo;s award-winning educational facility &ndash; the Wales Institute for Sustainable Education (WISE) &ndash; and visitor centre are based in Machynlleth, mid-Wales.</p>
+            <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+        </div>
+
+        <div class="extro_buttons">
+            <button class="LL-button-to-the-left" ng-click="handlePreviousIntroduction()" ng-show="step > 0" translate="PREV"></button>
+            <button class="LL-button" ng-click="home()">{{'HOME' | translate}}</button>
+            <button class="LL-button-to-the-right" ng-click="handleNextIntroduction()" ng-show="step < 2" translate="NEXT"></button>
+            <button class="LL-button-to-the-right" ng-click="handleNextIntroduction()" ng-show="step === 2">About</button>
+
+        </div>
+
+
+
+    </div>
+
+</div>

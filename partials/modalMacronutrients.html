@@ -1,0 +1,30 @@
+
+<div class="box">
+    <div ng-repeat="macronutrient in ['ENERGY','ENGFIB','PROT','SALT','SATFOD','TOTSUG']" ng-if='GHADR_step === macronutrient'>
+        <h1 translate="GHG_EMISSIONS_PER_RDA_FOR" translate-values="{'macronutrient': 'MACRON_' + macronutrient}"></h1>
+        <table translate="{{'MACRON_' + macronutrient + '_TABLE'}}"></table>
+        <p>{{'NUMBERS_OF_PORTION_NEEDED' | translate}}</p>
+        <p>{{'MACRON_NOTES' |translate}}</p>
+        <img class="woman_helper_macron" src="img/woman-helper.png" />
+        <div class="woman_helper_bubble woman_helper_bubble_macron">
+            <p class="woman_text_macron" translate="{{'MACRONUTRIENTS_' + macronutrient}}"></p>
+        </div>
+        <div class="lowering_your_emissions-buttons"> 
+            <button class="LL-button-to-the-left" ng-click="$close()">{{'BACK' | translate}}</button>
+            <!--<button class="LL-button-to-the-right" ng-click="handleNextResults({reason: 'next'})">{{'NEXT_GHADR' | translate}}</button>-->
+        </div>
+    </div>
+
+</div>
+<div class="lateral_menu">
+    <img src="img/body.png" />
+    <ul>
+        <li class="cursor_points" ng-click="setGHADR_step('ENERGY')" translate="ENERGY_MENU"></li>
+        <li class="cursor_points" ng-click="setGHADR_step('ENGFIB')" translate="ENGFIB"></li>
+        <li class="cursor_points" ng-click="setGHADR_step('PROT')" translate="PROT"></li>
+        <li class="cursor_points" ng-click="setGHADR_step('SALT')" translate="SALT"></li>
+        <li class="cursor_points" ng-click="setGHADR_step('SATFOD')" translate="SATFOD"></li>
+        <li class="cursor_points" ng-click="setGHADR_step('TOTSUG')" translate="TOTSUG"></li>
+    </ul>
+
+</div>

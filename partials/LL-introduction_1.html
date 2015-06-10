@@ -1,0 +1,43 @@
+
+<div id="LL-introduction">
+    <p style="visibility: hidden;">la</p>
+    <div class="introduction_window">
+        <div class="introduction_window_box">
+            <div ng-switch="getCurrentStepIntroduction()" ng-animate="'wave'">
+                <div class="introduction_slide_1" ng-switch-when="welcome">
+                    <p class="introduction_heading">Welcome to</p>
+                    <img class="introduction_main_picture" src="img/larder_for_intro.jpg" width="300px" />
+                    <p class="introduction_text">Exploring the impacts of our diets on greenhouse gas emissions and health</p>
+                    <div class="woman_helper_bubble_1">
+                        <p class="introduction_woman_text">Tell me what you like to eat and I’ll tell you how good it is for you and the planet</p>
+                    </div>
+
+                </div>
+                <div class="introduction_slide_2" ng-switch-when="how_the_application_works">
+                    <p class="introduction_heading">How the application works</p>
+                    <img class="introduction_main_picture" src="img/weekly_meals_table.jpg" width="450px" />
+                    <div class="woman_helper_bubble_1">
+                        <p class="introduction_woman_text">You need to complete this weekly diet table so that we can calculate your individual results</p>
+                    </div>
+                    <!--<div class="woman_helper_bubble_2">
+                        <p class="introduction_woman_text">You do this by telling us what you tend to eat for each meal of the day and what drinks and snacks you might have </p>
+                    </div>-->
+                </div>
+                <div class="introduction_slide_3" ng-switch-when="step_three">
+                    <p>Step 3</p>
+                </div>
+            </div>
+
+            <img class="introduction_woman_helper" src="img/woman-helper.png" width="130px" />
+            <div class="introduction_buttons">
+                <a class="btn" ng-click="openDiet()">Open</a>
+                <a class="btn" ng-click="handlePreviousIntroduction()" ng-show="!isFirstStepIntroduction()">Prev</a>
+                <a class="btn" ng-click="handleNextIntroduction()" ng-show="!isLastStepIntroduction()">Next</a>
+                <a class="btn" href="#/LL-input-data">Skip intro</a> 
+            </div>
+
+
+        </div>
+    </div>
+
+</div>

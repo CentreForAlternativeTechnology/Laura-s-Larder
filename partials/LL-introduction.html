@@ -1,0 +1,28 @@
+
+<div id="LL-introduction">
+    
+    <div class="introduction_window">
+                
+        <img class="intro-1" ng-if="steps[step] === 'LL intro-1'" ng-src="img/LL_introduction-background.jpg" />
+        <!--<img ng-if="steps[step] !== 'LL intro-1'" ng-src="img/{{steps[step]}}.jpg" />-->
+        <img ng-if="steps[step] !== 'LL intro-1' && languaje === 'en'" ng-src="img/{{steps[step]}}.jpg" />
+        <img ng-if="steps[step] !== 'LL intro-1' && languaje === 'cym'" ng-src="img/LL intro Cym-{{step + 1}}.jpg" />
+        
+
+        <div id="languaje-buttons" class="languaje-buttons" ng-if="steps[step] === 'LL intro-1'">
+            <button class="english_button cursor_points" ng-click="chooseLanguaje('en')"></button>
+            <button ng-disabled="false" class="cymraeg_button cursor_points" ng-click="chooseLanguaje('cym')"></button>
+        </div>
+        <div ng-if="steps[step] !== 'LL intro-1'" class="introduction_buttons">
+            <button class="LL-button open-button" ng-if="steps[step] === 'LL intro-2'" ng-click="openDiet()" translate="OPEN"></button>
+            <button class="LL-button skip-intro-button" href="#/LL-input-data" ng-click="skipIntro()" translate="SKIP_INTRO"></button>
+            <button class="LL-button-to-the-left" ng-click="handlePreviousIntroduction()" ng-if="step > 1" translate="PREV"></button>
+            <button class="LL-button-to-the-right" ng-if='step < 13' ng-click="handleNextIntroduction()" translate="NEXT"></button>
+
+        </div>
+
+
+
+    </div>
+
+</div>

@@ -1,0 +1,19 @@
+
+<div class="box">
+    <h3 translate="ADD_ITEM"></h3>
+    <div class="search_box"><!-- this box is reseted when clicking in one of the food items in the list, see directive "reset-searchbox -->
+        <input type="search" ng-model="search_word" placeholder="Search food item...">
+    </div>
+    <div class="search_results" ng-show="search_word.length > 2">
+        <ul>
+            <li reset-searchbox ng-repeat="product_in_repeat in products_list | findProduct:search_word" class="cursor_points" ng-click="handleNextResults({reason: 'product_selected_form_search', product: product_in_repeat})">
+                <!--<li  ng-repeat="product_in_repeat in products_list | findProduct:search_word" class="cursor_points" ng-click="handleNextInputWindow({reason: 'product_selected_form_search', product: product_in_repeat})">-->
+                {{ product_in_repeat.key | translate }}
+            </li>
+        </ul>
+    </div>
+
+    <div class='buttons product-information-buttons'>
+        <button class='LL-button' ng-click='$close()'>{{'CANCEL' | translate}}</button>
+    </div>
+</div>

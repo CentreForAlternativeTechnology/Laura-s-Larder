@@ -1,0 +1,62 @@
+<div ng-switch="step_in_products_and_subcategories">
+
+    <div class="choose_product_or_subcategory" ng-switch-when="choose_product_or_subcategory">
+        <div class="box">
+            <h3 translate="CHOOSE_CAT_PROD"></h3>
+            <ul>
+                <li class="cursor_points" ng-repeat="product_in_repeat in category.products" ng-click="handleNextInputWindow({reason: 'product_selected', product: product_in_repeat})" translate="{{product_in_repeat.key}}"></li>
+                <li class="cursor_points" ng-repeat="subcategory_in_repeat in category.subcategories" ng-click="handleNextInputWindow({reason: 'subcategory_selected', subcategory: subcategory_in_repeat})" translate="{{subcategory_in_repeat.key}}"></li>
+            </ul>
+            <div class="buttons">
+                <a class="LL-button-to-the-left" ng-click="$close()" translate="CANCEL"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="choose_size_and_origin" ng-switch-when="choose_size_and_origin">
+        <div class="box">
+            <h3 translate="CHOOSE_FROM_THE_FOLLOWING"></h3>
+
+            <!-- Portion size -->
+            <div class="portions_container" ng-if="product.options.portion_size.length > 0">
+                <h4 translate="PORTION_SIZE"></h4>
+                <span ng-switch="product.options.portion_size[0].hasOwnProperty('graphic')">
+                    <span ng-switch-when="true"><input class="cursor_points" ng-repeat="(index, size) in product.options.portion_size" type="radio" name="product.portion_size_choice" pict-toradio model="product.options.user_choice.portion_size" value="index" pict-src="img/{{size.graphic}}" text-todisplay='{{size.key | translate}}' /></span>
+                    <span ng-switch-when="false"><label class="cursor_points" ng-repeat="(index,size) in product.options.portion_size">
+                            <input type="radio" name="product.portion_size_choice" ng-model="product.options.user_choice.portion_size" ng-value="index" class="cursor_points" />{{size.key | translate}}
+                        </label></span>
+                </span>
+
+                <!--mycommetn  <label ng-repeat="(index,size) in product.options.portion_size">
+                    <img ng-if="size.graphic" ng-src="img/{{size.graphic}}" />
+                    <input type="radio" name="product.portion_size_choice" ng-model="product.options.user_choice.portion_size" ng-value="index" class="cursor_points" />{{size.key}}
+                </label>
+                -->
+            </div>
+            <!-- Number of -->
+            <div ng-if="product.options.quantity.hasOwnProperty('key')"> 
+                <h4 translate="{{product.options.quantity.key}}"></h4>
+                <input type='number' ng-model="product.options.user_choice.quantity" min='0.25' step='0.25' value='1' />
+            </div>
+            <!-- Origin --><!--origin, we don´t display it when there is only one option-->
+            <div ng-nodisplayifsinglevalue ng-product="product"> 
+                <h4 translate="{{'ORIGIN'}}"></h4>
+                <input class="cursor_points" ng-repeat="(origin_key, emissions) in ngProduct.options.origin | originExists" type="radio" name="origin_choice" id="origin_key" pict-toradio model="ngProduct.options.user_choice.origin" value="origin_key" pict-src="img/from-{{origin_key}}.png" />
+            </div>
+            <div class="buttons">
+                <button class="LL-button-to-the-left" ng-click="$close()" translate="CANCEL"></button>
+              <button ng-if="controller === 'input_data'" class="LL-button-to-the-right" ng-click="handleNextInputWindow({reason: 'size_and_origin_selected'})" ng-disabled="(product.options.portion_size.length > 0 && product.options.user_choice.portion_size == null) 
+                   || (product.options.quantity.hasOwnProperty('key') && product.options.user_choice.quantity == null)
+                   || product.options.user_choice.origin==null" translate="OK"></button>
+                <button ng-if="controller === 'results'" class="LL-button-to-the-right" ng-click="handleNextResults({reason: 'size_and_origin_selected'})" ng-disabled="(product.options.portion_size.length > 0 && product.options.user_choice.portion_size == null) 
+                   || (product.options.quantity.hasOwnProperty('key') && product.options.user_choice.quantity == null)
+                   || product.options.user_choice.origin==null" translate="OK">OK</button>
+                            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

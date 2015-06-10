@@ -1,0 +1,345 @@
+
+<div id="LL-results">
+    <p style="visibility: hidden;">la</p>
+    <div class="results_window">
+        <div class="results_window_box"
+             <div ng-switch="step" ng-animate="'wave'" >
+                <div class="main_results_window" ng-switch-when="main_results">
+                    <h1 translate="GREEN_HOUSE_GAS_EMISSION"></h1>
+                    <div class="chart1">
+                        <h2 translate ="YOUR_EMISSIONS_PER_FOOD_GROUP"></h2>
+                        <chart ng-model='dataForBarGraphPerFoodGroup'> </chart> 
+                    </div>
+                    <div class="chart2">
+                        <h2 translate ="TOTAL_EMISSIONS"></h2>
+                        <chart ng-model='dataForBarGraphTotalEmissions'> </chart> 
+                    </div>
+                    <img class="woman_helper_GHGE" src="img/woman-helper.png" />
+                    <div class="woman_helper_bubble woman_helper_bubble_GHGE">
+                        <p class="woman_text_GHGE" translate="GHGE_HELPER_TEXT"></p>
+                    </div>
+                    <button class="LL-button-to-the-right" ng-class="{'LL-button-to-the-right-main-results-window-cym': languaje === 'cym'}" ng-click="handleNextResults({reason: 'next'})">{{'NEXT_YOUR_TOP_FIVE_EMITTER' | translate}}</button>
+
+
+                    <!-- Display two 3d pie charts with info abot emissions, we are finally not using it but i leave it just incase 
+                            To use it uncomment in laurasLarderApp.js and controller.js (resultsLLCtrl.ini_graph())
+                    
+                            <div class="results_overview_box">
+                                <h2>Greenhouse gas emissions</h2>
+                                <p>Total: {{userDiet.ghgTotalPerDay | number:2}} kg CO2e/day</p>
+                                <div class="result_overview_graph_box">
+                                    <div id="container_ghgFoodGroupsPerDay" ng-init="ini_graph('ghgFoodGroupsPerDay')" style="width:300px;height:200px;;border:0px solid #A4BED4;"></div>
+                                </div>
+                            </div>
+                            <div class="results_overview_box">
+                                <h2>Nutritional Information</h2>
+                                <p>Total: {{userDiet.nutritionalDataPerDay.Macronutrients.ENERGY | number:2}} kcal/day</p>                        
+                                <div class="results_overview_graph_box">
+                                    <div id="container_energyFoodGroupsPerDay" ng-init="ini_graph('energyFoodGroupsPerDay')" style="width:300px;height:200px;;border:0px solid #A4BED4;"></div>
+                                </div>
+                            </div>
+                            
+                    
+                    -->
+                </div>
+
+                <div class="main_results_window" ng-switch-when="top_five_emitters" >
+                    <h1 translate="GREEN_HOUSE_GAS_EMISSION"></h1>
+                    <div class="T5E">
+                        <h2 translate ="YOUR_TOP_FIVE_HISGHEST_EMITTING_FOODS"></h2>
+                        <table>
+                            <tr><th></th>&nbsp;<th translate='ITEM'></th><th translate='FOOD_GROUP'></th><th translate="EMISSIONS_PER_PORTION"></th><th translate="NUMBER_OF_PORTIONS"></th></tr>
+                            <tr ng-repeat="(product_key, product) in userDiet.topFiveEmitters" ng-class-odd="'light_row'" ng-class-even="'dark_row'"><td class="meal_column">{{$index + 1}}</td><td class="item_column" translate="{{product.key}}"></td><td class="fg_column" translate="{{product.food_group | uppercase}}"></td><td class="EPP_column">{{product.ghg | number:2}}</td><td class="NOP_column">{{product.numberOfTimes}}</td></tr>
+                        </table>
+                    </div>
+                    <img class="woman_helper_T5E" src="img/woman-helper.png" />
+                    <div class="woman_helper_bubble woman_helper_bubble_T5E">
+                        <p class="woman_text_T5E" translate="T5E_HELPER_TEXT"></p>
+                    </div>
+                    <div class="T5E-buttons"> 
+                        <button class="LL-button-to-the-left" ng-click="handleNextResults({reason: 'back'})">{{'BACK' | translate}}</button>
+                        <button class="LL-button-to-the-right" ng-click="handleNextResults({reason: 'next'})">{{'NEXT_LOWERING_YOUR_EMISSIONS' | translate}}</button>
+                    </div>
+
+
+                </div>
+                <div class="GHADR_1" ng-switch-when="general_health_and_disease_risk_1" >
+                    <h1>{{'GHADR_TITLE' | translate}}</h1>
+                    <div class="GHADR1-content">
+                        <img class="body" src="img/body.png">
+                        <div class="cursor_points GHADR_PROT" ng-click="handleNextResults({reason: 'macronutrient_clicked', macronutrient: 'PROT'})">
+                            <img src="img/GHADR_exclamation_mark.png" ng-if='!nutrientInRecommendedLevels("PROT","Macronutrients")' />
+                            <img src="img/GHADR_tick.png" ng-if='nutrientInRecommendedLevels("PROT","Macronutrients")' />
+                            <div>
+                                <h2>{{'PROT' |translate}}</h2>
+                                <p translate="GHADR_PROT_text"></p>
+                            </div>
+                        </div>
+                        <div class="cursor_points GHADR_FIBRE" ng-click="handleNextResults({reason: 'macronutrient_clicked', macronutrient: 'ENGFIB'})">
+                            <img src="img/GHADR_exclamation_mark.png" ng-if='!nutrientInRecommendedLevels("ENGFIB","Macronutrients")' />
+                            <img src="img/GHADR_tick.png" ng-if='nutrientInRecommendedLevels("ENGFIB","Macronutrients")' />
+                            <div>
+                                <h2>{{'ENGFIB' |translate}}</h2>
+                                <p translate="GHADR_ENGFIB_text"></p>
+                            </div>
+                        </div>
+                        <div class="GHADR1_legend">
+                            <img src="img/GHADR_tick.png" /><p>{{'GHADR_LEGEND_TICK' | translate}}</p>
+                            <img src="img/GHADR_exclamation_mark.png" /><p>{{'GHADR_LEGEND_EXCLAMATION_MARK' | translate}}</p>
+                        </div>
+                    </div>
+                    <div class="GHADR1-buttons"> 
+                        <button class="LL-button-to-the-left" ng-click="handleNextResults({reason: 'back'})">{{'BACK' | translate}}</button>
+                        <button class="LL-button-to-the-right" ng-click="handleNextResults({reason: 'next'})">{{'NEXT' | translate}}</button>
+                    </div>
+                    <img class="woman_helper_GHADR1" src="img/woman-helper.png" />
+                    <div class="woman_helper_bubble woman_helper_bubble_GHADR1">
+                        <p class="woman_text_GHADR" translate="GHADR1_HELPER_TEXT"></p>
+                    </div>
+                </div>
+
+                <div class="GHADR_2" ng-switch-when="general_health_and_disease_risk_2" >
+                    <h1>{{'GHADR_TITLE' | translate}}</h1>
+                    <div class="GHADR_left">
+                        <div class="cursor_points GHADR2 GHADR_ENERGY"  ng-click="handleNextResults({reason: 'macronutrient_clicked', macronutrient: 'ENERGY'})">
+                            <img src="img/GHADR_exclamation_mark.png" ng-if='!nutrientInRecommendedLevels("ENERGY","Macronutrients")' />
+                            <img src="img/GHADR_tick.png" ng-if='nutrientInRecommendedLevels("ENERGY","Macronutrients")' />
+                            <div>
+                                <h2>{{"ENERGY" |translate}}</h2>
+                                <p>{{'GHADR_ENERGY_text' | translate}}</p>
+                            </div>
+                        </div>
+                        <div class="cursor_points GHADR2 GHADR_SALT"  ng-click="handleNextResults({reason: 'macronutrient_clicked', macronutrient: 'SALT'})">
+                            <img src="img/GHADR_exclamation_mark.png" ng-if='!nutrientInRecommendedLevels("SALT","Macronutrients")' />
+                            <img src="img/GHADR_tick.png" ng-if='nutrientInRecommendedLevels("SALT","Macronutrients")' />
+                            <div>
+                                <h2>{{"SALT" |translate}}</h2>
+                                <p>{{'GHADR_SALT_text' | translate}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="legend-body">
+                        <img class="body" src="img/body.jpg" />
+
+                    </div>
+                    <div class="GHADR_right">
+                        <div class="cursor_points GHADR2 GHADR_SATFOD"  ng-click="handleNextResults({reason: 'macronutrient_clicked', macronutrient: 'SATFOD'})">
+                            <img src="img/GHADR_exclamation_mark.png" ng-if='!nutrientInRecommendedLevels("SATFOD","Macronutrients")' />
+                            <img src="img/GHADR_tick.png" ng-if='nutrientInRecommendedLevels("SATFOD","Macronutrients")' />
+                            <div>
+                                <h2>{{"SATFOD" |translate}}</h2>
+                                <p>{{'GHADR_SATFOD_text' | translate}}</p>
+                            </div>
+                        </div>
+                        <div class="cursor_points GHADR2 GHADR_TOTSUG"  ng-click="handleNextResults({reason: 'macronutrient_clicked', macronutrient: 'TOTSUG'})">
+                            <img src="img/GHADR_exclamation_mark.png" ng-if='!nutrientInRecommendedLevels("TOTSUG","Macronutrients")' />
+                            <img src="img/GHADR_tick.png" ng-if='nutrientInRecommendedLevels("TOTSUG","Macronutrients")' />
+                            <div>
+                                <h2>{{"TOTSUG" |translate}}</h2>
+                                <p>{{'GHADR_TOTSUG_text' | translate}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="GHADR2_legend">
+                        <img src="img/GHADR_tick.png" /><p translate="GHADR2_LEGEND_TICK"></p>
+                        <img src="img/GHADR_exclamation_mark.png" /><p translate="GHADR_LEGEND_EXCLAMATION_MARK"></p>
+                    </div>
+
+                    <div class="GHADR1-buttons"> 
+                        <button class="LL-button-to-the-left" ng-click="handleNextResults({reason: 'back'})">{{'BACK' | translate}}</button>
+                        <button class="LL-button-to-the-right" ng-click="handleNextResults({reason: 'next'})">{{'NEXT' | translate}}</button>
+                    </div>
+                    <img class="woman_helper_GHADR2" src="img/woman-helper.png" />
+                    <div class="woman_helper_bubble woman_helper_bubble_GHADR2">
+                        <p class="woman_text_GHADR" translate="GHADR2_HELPER_TEXT"></p>
+                    </div>
+                </div>
+
+                <div class='lowering_your_emissions_window' ng-switch-when='lowering_your_emissions' >
+                    <h1>{{'LOWERING_YOUR_EMISSIONS' | translate}}</h1>
+                    <table class='LYE' translate="LOWERING_YOUR_EMISSIONS_TABLE"></table>
+                    <img class="woman_helper_lowering_your_emissions" src="img/woman-helper.png" />
+                    <div class="woman_helper_bubble woman_helper_bubble_lowering_your_emissions">
+                        <p class="woman_text_lowering_your_emissions" translate="LOWERING_YOUR_EMISSIONS_HELPER_TEXT"></p>
+                    </div>
+                    <div class="lowering_your_emissions-buttons"> 
+                        <button class="LL-button-to-the-left" ng-click="handleNextResults({reason: 'back'})">{{'BACK' | translate}}</button>
+                        <button class="LL-button-to-the-right" ng-click="handleNextResults({reason: 'next'})">{{'NEXT_GHADR' | translate}}</button>
+                    </div>
+                </div>
+
+
+                <!--
+                                <div class='GHADR_macronutrient_window' ng-switch-when='GHADR_macronutrient'>
+                                    <div ng-repeat="macronutrient in ['ENERGY','ENGFIB','PROT','SALT','SATFOD','TOTSUG']" ng-if='GHADR_step === macronutrient'>
+                                        <h1 translate="GHG_EMISSIONS_PER_RDA_FOR" translate-values="{'macronutrient': 'MACRON_' + macronutrient}"></h1>
+                                        <table translate="{{'MACRON_' + macronutrient + '_TABLE'}}"></table>
+                                        <p>{{'NUMBERS_OF_PORTION_NEEDED' | translate}}</p>
+                                        <p>{{'MACRON_NOTES' |translate}}</p>
+                                        <img class="woman_helper_macron" src="img/woman-helper.png" />
+                                        <div class="woman_helper_bubble woman_helper_bubble_macron_1">
+                                            <p class="woman_text_macron" translate="'HERE_IN_THE_UK_' + macronutient"></p>
+                                        </div>
+                                        <div class="woman_helper_bubble woman_helper_bubble_macron_2">
+                                            <p class="woman_text_macron" translate="{{'THESE_ARE_SOME_' + macronutient}}"></p>
+                                        </div>
+                                        <div class="lowering_your_emissions-buttons"> 
+                                            <button class="LL-button-to-the-left" ng-click="handleNextResults({reason: 'back'})">{{'BACK' | translate}}</button>
+                <!--<button class="LL-button-to-the-right" ng-click="handleNextResults({reason: 'next'})">{{'NEXT_GHADR' | translate}}</button>-->
+                <!--      </div>
+                  </div>
+              </div>
+                -->
+
+
+                <div class='VitMin_window' ng-switch-when='VitMin' >
+                    <h1>{{'GHADR_TITLE' | translate}}</h1>
+                    <div class="vitamins"> 
+                        <h2>{{'VITAMINS' | translate}}</h2>
+                        <div class="vitamins_table">
+                            <div ng-repeat="(vitamin_key, vitamin_value) in userDiet.nutritionalDataPerDay.Vitamins" ng-click="handleNextResults({reason: 'vitamin_clicked', vitmin: vitamin_key})" ng-if="vitamin_key !== 'VITA'" class="vitamins_box cursor_points vitamin_{{vitamin_key}}">
+                                <p>{{vitamin_key | translate}}</p>
+                                <img src="img/GHADR_exclamation_mark.png" ng-if='!nutrientInRecommendedLevels(vitamin_key,"Vitamins")' />
+                                <img src="img/GHADR_tick.png" ng-if='nutrientInRecommendedLevels(vitamin_key,"Vitamins")' />                               
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="minerals"> 
+                        <h2>{{'MINERALS' | translate}}</h2>
+                        <div class="minerals_table">
+                            <div ng-repeat="(mineral_key, mineral_value) in userDiet.nutritionalDataPerDay.Minerals" ng-click="handleNextResults({reason: 'mineral_clicked', vitmin: mineral_key})" class="cursor_points minerals_box mineral_{{vitamin_key}}">
+                                <p>{{mineral_key | translate}}</p>   
+                                <img src="img/GHADR_exclamation_mark.png" ng-if='!nutrientInRecommendedLevels(mineral_key,"Minerals")' />
+                                <img src="img/GHADR_tick.png" ng-if='nutrientInRecommendedLevels(mineral_key,"Minerals")' />       
+                            </div>
+                        </div>
+                    </div>
+                    <img class="woman_helper_VitMin" src="img/woman-helper.png" />
+                    <div class="woman_helper_bubble woman_helper_bubble_VitMin">
+                        <p class="woman_text_GHADR" translate="WOMAN_HELPER_TEXT_VITMIN"></p>
+                    </div>
+
+
+                    <div class="VitMin_legend" ng-class="{'VitMin_legend-cym': languaje === 'cym'}">
+                        <img src="img/GHADR_tick.png" /><p>{{'GHADR_LEGEND_TICK' | translate}}</p>
+                        <img src="img/GHADR_exclamation_mark.png" /><p>{{'GHADR_LEGEND_EXCLAMATION_MARK' | translate}}</p>
+                    </div>
+                    <div class="VitMin-buttons"> 
+                        <button class="LL-button-to-the-left" ng-click="handleNextResults({reason: 'back'})">{{'BACK' | translate}}</button>
+                        <button class="LL-button-to-the-right" ng-click="handleNextResults({reason: 'next'})">{{'NEXT' | translate}}</button>
+                    </div>
+                </div>
+                <div class='vitmin_info_window' ng-switch-when='vitmin_info'>
+                    <div class="vitmin_list">
+                        <p ng-repeat="(vitamin_key,vitamin_value) in userDiet.nutritionalDataPerDay.Vitamins" ng-click="handleNextResults({reason: 'vit_min_clicked', vitmin: vitamin_key})">
+                            <a>{{vitamin_key}}</a>
+                        </p>
+                        <p ng-repeat="(mineral_key, mineral_value) in userDiet.nutritionalDataPerDay.Minerals" ng-click="handleNextResults({reason: 'vit_min_clicked', vitmin: mineral_key})">
+                            <a>{{mineral_key}}</a>
+                        </p>
+                    </div>
+                    <div class="vitmin_info_box">
+                        <div ng-repeat="(vitamin, value) in userDiet.nutritionalDataPerDay.Vitamins" ng-if='vitmin_info_step === vitamin'> ASDAS
+                            <div ng-repeat ="level_of_emissions in ['LOW_EMISSIONS', 'MEDIUM_EMISSIONS', 'HIGH_EMISSIONS', 'VERY_HIGH_EMISSIONS']" ng-if='emissions_level_step === level_of_emissions'>
+                                <p>vitmin_info_{{vitamin}}_{{level_of_emissions}}_intro</p>
+                                <div class='vitmin_info_foods_{level_of_emissions}'>
+                                    vitmin_info_{{vitamin}}_foods_{{level_of_emissions}}
+                                </div>
+                                <p>Rank based on a combination of.....</p>
+                            </div>
+                        </div>
+                        <div ng-repeat="(mineral, value) in userDiet.nutritionalDataPerDay.Minerals" ng-if='vitmin_info_step === mineral'>
+                            <div ng-repeat ="level_of_emissions in ['LOW_EMISSIONS', 'MEDIUM_EMISSIONS', 'HIGH_EMISSIONS', 'VERY_HIGH_EMISSIONS']" ng-if='emissions_level_step === level_of_emissions'>
+                                <p>vitmin_info_{{mineral}}_{{level_of_emissions}}_intro</p>
+                                <div class='vitmin_info_foods_{level_of_emissions}'>
+                                    vitmin_info_{{mineral}}_foods_{{level_of_emissions}}
+                                </div>
+                                <p>Rank based on a combination of.....</p>
+                            </div>
+                        </div>
+                        <a class="btn vitmin_info_btn" ng-click="handleNextResults({reason: 'emissions_level_clicked', emissions_level: 'LOW_EMISSIONS'})">Low emissions foods - </a>
+                        <a class="btn vitmin_info_btn" ng-click="handleNextResults({reason: 'emissions_level_clicked', emissions_level: 'MEDIUM_EMISSIONS'})">Medium emissions foods - </a>
+                        <a class="btn vitmin_info_btn" ng-click="handleNextResults({reason: 'emissions_level_clicked', emissions_level: 'HIGH_EMISSIONS'})">High emissions foods - </a>
+                        <a class="btn vitmin_info_btn" ng-click="handleNextResults({reason: 'emissions_level_clicked', emissions_level: 'VERY_HIGH_EMISSIONS'})">Very high  emissions foods</a>
+                    </div>
+                </div>
+                <div class='summary_window' ng-switch-when='summary' >
+                    <h1>{{'SUMMARY' | translate}}</h1>
+                    <table class="summaryTable">
+                        <tr><th>&nbsp;</th><th>{{'BREAKFAST' |translate}}</th><th>{{'LUNCH' |translate}}</th><th>{{'DINNER' |translate}}</th><th>{{'SNACKS_AND_DRINKS_SHORT' |translate}}</th></tr>
+                        <tr class="dark_row">
+                            <td class="meal_column">{{'MONDAY' |translate}}</td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'monday', meal: 'breakfast'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.monday.breakfast" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'monday', meal: 'breakfast'})">{{product_object.key | translate}}</p></td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'monday', meal: 'lunch'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.monday.lunch" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'monday', meal: 'lunch'})">{{product_object.key | translate}}</p></td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'monday', meal: 'dinner'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.monday.dinner" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'monday', meal: 'dinner'})">{{product_object.key | translate}}</p></td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'monday', meal: 'snacks_and_drinks'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.monday.snacks_and_drinks" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'monday', meal: 'snacks_and_drinks'})">{{product_object.key | translate}}</p></td>
+                        </tr>
+                        <tr class="light_row">
+                            <td class="meal_column">{{'TUESDAY' |translate}}</td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'tuesday', meal: 'breakfast'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.tuesday.breakfast" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'tuesday', meal: 'breakfast'})">{{product_object.key | translate}}</p></td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'tuesday', meal: 'lunch'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.tuesday.lunch" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'tuesday', meal: 'lunch'})">{{product_object.key | translate}}</p></td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'tuesday', meal: 'dinner'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.tuesday.dinner" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'tuesday', meal: 'dinner'})">{{product_object.key | translate}}</p></td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'tuesday', meal: 'snacks_and_drinks'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.tuesday.snacks_and_drinks" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'tuesday', meal: 'snacks_and_drinks'})">{{product_object.key | translate}}</p></td>
+                        <tr class="dark_row">
+                            <td class="meal_column">{{'WEDNESDAY' |translate}}</td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'wednesday', meal: 'breakfast'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.wednesday.breakfast" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'wednesday', meal: 'breakfast'})">{{product_object.key | translate}}</p></td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'wednesday', meal: 'lunch'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.wednesday.lunch" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'wednesday', meal: 'lunch'})">{{product_object.key | translate}}</p></td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'wednesday', meal: 'dinner'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.wednesday.dinner" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'wednesday', meal: 'dinner'})">{{product_object.key | translate}}</p></td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'wednesday', meal: 'snacks_and_drinks'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.wednesday.snacks_and_drinks" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'wednesday', meal: 'snacks_and_drinks'})">{{product_object.key | translate}}</p></td>
+                        </tr>
+                        <tr class="light_row">
+                            <td class="meal_column">{{'THURSDAY' |translate}}</td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'thursday', meal: 'breakfast'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.thursday.breakfast" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'thursday', meal: 'breakfast'})">{{product_object.key | translate}}</p></td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'thursday', meal: 'lunch'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.thursday.lunch" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'thursday', meal: 'lunch'})">{{product_object.key | translate}}</p></td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'thursday', meal: 'dinner'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.thursday.dinner" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'thursday', meal: 'dinner'})">{{product_object.key | translate}}</p></td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'thursday', meal: 'snacks_and_drinks'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.thursday.snacks_and_drinks" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'thursday', meal: 'snacks_and_drinks'})">{{product_object.key | translate}}</p></td>
+                        </tr>
+                        <tr class="light_row">
+                            <td class="meal_column">{{'FRIDAY' |translate}}</td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'friday', meal: 'breakfast'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.friday.breakfast" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'friday', meal: 'breakfast'})">{{product_object.key | translate}}</p></td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'friday', meal: 'lunch'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.friday.lunch" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'friday', meal: 'lunch'})">{{product_object.key | translate}}</p></td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'friday', meal: 'dinner'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.friday.dinner" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'friday', meal: 'dinner'})">{{product_object.key | translate}}</p></td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'friday', meal: 'snacks_and_drinks'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.friday.snacks_and_drinks" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'friday', meal: 'snacks_and_drinks'})">{{product_object.key | translate}}</p></td>
+                        </tr>
+                        <tr class="light_row">
+                            <td class="meal_column">{{'SATURDAY' |translate}}</td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'saturday', meal: 'breakfast'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.saturday.breakfast" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'saturday', meal: 'breakfast'})">{{product_object.key | translate}}</p></td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'saturday', meal: 'lunch'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.saturday.lunch" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'saturday', meal: 'lunch'})">{{product_object.key | translate}}</p></td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'saturday', meal: 'dinner'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.saturday.dinner" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'saturday', meal: 'dinner'})">{{product_object.key | translate}}</p></td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'saturday', meal: 'snacks_and_drinks'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.saturday.snacks_and_drinks" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'saturday', meal: 'snacks_and_drinks'})">{{product_object.key | translate}}</p></td>
+                        </tr>
+                        <tr class="light_row">
+                            <td class="meal_column">{{'SUNDAY' |translate}}</td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'sunday', meal: 'breakfast'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.sunday.breakfast" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'sunday', meal: 'breakfast'})">{{product_object.key | translate}}</p></td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'sunday', meal: 'lunch'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.sunday.lunch" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'sunday', meal: 'lunch'})">{{product_object.key | translate}}</p></td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'sunday', meal: 'dinner'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.sunday.dinner" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'sunday', meal: 'dinner'})">{{product_object.key | translate}}</p></td>
+                            <td><p class="add-product cursor_points" ng-click="handleNextResults({reason: 'add_product', day:'sunday', meal: 'snacks_and_drinks'})">+</p><p ng-repeat="(product_index, product_object) in weeklyMeals.sunday.snacks_and_drinks" class="cursor_points" ng-click="handleNextResults({reason: 'show_product_information', product: product_object, product_index: product_index, day:'sunday', meal: 'snacks_and_drinks'})">{{product_object.key | translate}}</p></td>
+                        </tr>
+                    </table>
+                    <div class="chart1">
+                        <h2 translate ="YOUR_EMISSIONS_PER_FOOD_GROUP"></h2>
+                        <chart ng-model='dataForBarGraphPerFoodGroup'> </chart> 
+                    </div>
+                    <div class="chart2">
+                        <h2 translate ="TOTAL_EMISSIONS"></h2>
+                        <chart ng-model='dataForBarGraphTotalEmissions'> </chart> 
+                    </div>
+
+                    <img class="woman_helper_summary" src="img/woman-helper.png" />
+                    <div class="woman_helper_bubble woman_helper_bubble_summary">
+                        <p class="woman_text_summary" translate="WOMAN_HELPER_TEXT_SUMMARY"></p>
+                    </div>
+                    <div class="summary-buttons"> 
+                        <button class="LL-button" ng-click="handleNextResults({reason: 'save'})">{{'SAVE' | translate}}</button>
+                        <button class="LL-button" ng-click="handleNextResults({reason: 'home'})">{{'HOME' | translate}}</button>
+                        <button class="LL-button" ng-click="exit()" translate="EXIT"></button>
+                        <button class="LL-button-to-the-right" ng-click="handleNextResults({reason: 'next'})">{{'SEE_HOW_THIS_CHANGES_YOUR_HEALT_RESULTS' | translate}}</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+

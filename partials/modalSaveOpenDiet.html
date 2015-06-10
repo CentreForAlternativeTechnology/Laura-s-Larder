@@ -1,0 +1,35 @@
+
+<div class="box">
+    <div ng-switch="saveOpenStep">
+        <div ng-switch-when="save">
+            <h1 translate="SAVE_DIET"></h1>
+            <div ng-if="storage.length > 0"> 
+                <h2 translate="CHOOSE_ONE_DIET"></h2>
+                <p ng-repeat="(diet_key, diet_object) in storage"><label ng-if="diet_key[0]!=='_'"><input name="diet_name" type="radio" ng-model="dietToSave.name" ng-value="diet_key" />{{diet_key}}</label></p>
+            </div>
+            <p translate="SAVE_AS"></p><input type="text" ng-model="dietToSave.name" ngMinlength="3" ngMaxlength="20" />
+            <checkboxtodownload class="checkbox" file-url="dietToSave.url" label="{{'DOWNLOAD_DIET' | translate}}" file-name="dietToSave.name"></checkboxtodownload>
+            <div class='buttons save-open-buttons'>           
+                <button ng-if="dietToSave.name === 'reset'" class='LL-button' ng-click='reset()'>Reset</button>
+                <button class='LL-button' ng-click='$dismiss()'>{{'CANCEL' | translate}}</button>
+                <button ng-disabled="dietToSave.name == null" class='LL-button-to-the-right' ng-click="$close({reason:'save'})">{{'SAVE' | translate}}</button>
+            </div>
+        </div>
+        <div ng-switch-when="open">
+            <h1 translate="OPEN_DIET"></h1>
+            <div ng-if="storage.length > 0"> 
+                <h2 translate="CHOOSE_ONE_DIET_OPEN"></h2>
+                <p ng-repeat="(diet_key, diet_object) in storage"><label ng-if="diet_key[0]!=='_'"><input name="diet_name" type="radio" ng-model="dietToOpen.name" ng-value="diet_key" />{{diet_key}}</label></p>
+            </div>
+                        <!--<label><input name="diet_name" type="radio" ng-click="openFromFile()" ng-model="dietToOpen.name" translate="OPEN_FROM_FILE" />{{diet_key}}</label-->
+                        <h2 translate="OPEN_FROM_FILE"></h2>
+                        <label><input type="file" onchange="angular.element(this).scope().openFromFile(this)" translate="OPEN_FROM_FILE" accept="application/json" /></label>
+            <div class='buttons save-open-buttons'>           
+                <button ng-if="dietToOpen.name === 'reset'" class='LL-button' ng-click='reset()'>Reset</button>
+                <button class='LL-button' ng-click='$dismiss()'>{{'CANCEL' | translate}}</button>
+                <button ng-disabled="dietToOpen.name == null" class='LL-button-to-the-right' ng-click="$close()">{{'OPEN' | translate}}</button>
+            </div>
+        </div>
+
+    </div>
+</div>

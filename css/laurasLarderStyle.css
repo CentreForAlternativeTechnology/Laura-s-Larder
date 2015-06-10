@@ -1,0 +1,2539 @@
+/* laurasLarder css stylesheet */
+
+/**   Fonts   **/
+@font-face
+{
+    font-family: droidSans;
+    src:
+url("fonts/DroidSans.ttf");
+}
+@font-face
+{
+    font-family: droidSans;
+    src:
+url("fonts/DroidSans-Bold.ttf");
+    font-weight:bold;
+}
+
+/*@font-face
+{
+    font-family: droidSans;
+    src: url("http://fonts.googleapis.com/css?family=Droid+Sans+Mono");
+}*/
+@font-face
+{
+    font-family: PatrickHand;
+    src:
+url("fonts/PatrickHand-Regular.ttf");
+}
+
+/*********************************/
+
+body{
+    font-family:droidSans, sans-serif;
+    display: block;
+    width:100%;
+    height:610px;
+    background-color: #afb1c1;
+    background-image:
+url("../img/LL_introduction-background.jpg");
+    background-repeat:no-repeat;
+    background-position:center top;
+    background-attachment:fixed;
+    background-size: auto 600px;
+
+}
+h1, h2, h3, h4, h5, h6
+{
+    font-family:droidSans, sans-serif;
+    font-weight:bold;
+}
+h2{
+    font-size:25px;
+}
+.cursor_points{
+    cursor: pointer;
+}
+
+/** Introduction page **/
+#LL-introduction, #LL-results, #LL-input-data{
+
+}
+
+.introduction_window{
+    margin: 0;
+    background-color:white;
+    -webkit-box-shadow: 0px 0px 5px 2px #4a4a4a;
+    -moz-box-shadow: 0px 0px 5px 2px #4a4a4a;
+    box-shadow: 0px 0px 5px 2px #4a4a4a;
+    position:absolute;
+    left:233px;
+}
+.introduction_window img{
+    width:813px;
+}
+.input_data_window{
+    width: 626px;
+    height: 529px;
+    margin: 0px auto 0px auto;
+    background-image:none;
+    -webkit-box-shadow: 0px 0px 5px 2px #4a4a4a;
+    -moz-box-shadow: 0px 0px 5px 2px #4a4a4a;
+    box-shadow: 0px 0px 5px 2px #4a4a4a;
+    background: white;
+}
+.input_user_info{
+    height:529px;
+    margin-top:50px;
+
+}
+.results_window{
+    width: 800px;
+    height: 100%;
+    margin: 0 auto 0 auto;
+    background-color:white;
+    -webkit-box-shadow: 0px 0px 5px 2px #4a4a4a;
+    -moz-box-shadow: 0px 0px 5px 2px #4a4a4a;
+    box-shadow: 0px 0px 5px 2px #4a4a4a;
+    padding-bottom:15px;
+}
+.introduction_window_box, .results_window_box, .display_weekly_table,
+.modalProductsAndSubcategories .box, .copy-meal-to-other-day .box,
+.show_larder_help .box,.modalRemoveProductConfirmation .box,
+.modalShowProductInformation .box, .extro-about{
+    border:solid 3px #7FA6EE;
+    width:97%;
+    height:97%;
+    position: relative;
+    top: 8px;
+    margin: 0 auto;
+}
+.modalProductsAndSubcategories .box,  .modalShowProductInformation .box,
+.extro-about{
+    padding: 0 10px;
+}
+.modalShowProductInformation .box{
+    height:94%;}
+
+.choose_product_or_subcategory{
+    width:auto;
+}
+
+.introduction_woman_helper{
+    display:block;
+    position: absolute;
+    bottom:0px;
+    left:0px;
+}
+
+.introduction_buttons{
+    display:block;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.introduction_heading{
+    margin: 15px auto;
+    text-align: center;
+    font-size: 37px;
+}
+.introduction_main_picture{
+    display:block;
+    margin:0px auto;
+}
+.introduction_text{
+    display:block;
+    margin: 0px auto;
+    width: 315px;
+    text-align: center;
+    font-size:18px;
+}
+
+.introduction_slide_1 .woman_helper_bubble_1{
+    width: 380px;
+    height: 80px;
+    border: 3px solid #afb1c1;
+    position: relative;
+    bottom:0px;
+    left:140px;
+    text-align:center;
+    -moz-border-radius:    10px;
+    -webkit-border-radius: 10px;
+    border-radius:         10px;
+}
+.introduction_slide_1 .woman_helper_bubble_1:before{
+    content:"";
+    position: absolute;
+    right: 100%;
+    top: 16px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 46px solid #afb1c1;
+    border-bottom: 13px solid transparent;
+}
+.introduction_slide_1 .woman_helper_bubble_1:after{
+    content:"";
+    position: absolute;
+    right: 99%;
+    top: 21px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-right: 43px solid white;
+    border-bottom: 8px solid transparent;
+}
+
+.introduction_slide_2 .woman_helper_bubble_1{
+    width: 380px;
+    height: 100px;
+    border: 3px solid #afb1c1;
+    position: relative;
+    bottom:0px;
+    left:80px;
+    -moz-border-radius:    10px;
+    -webkit-border-radius: 10px;
+    border-radius:         10px;
+}
+
+.introduction_slide_2 .woman_helper_bubble_1:before{
+    content: "";
+    position: absolute;
+    right: 80%;
+    top: 97px;
+    border-width: 0 0 30px 50px;
+    border-style: solid;
+    border-color: transparent #afb1c1;
+    /* reduce the damage in FF3.0 */
+    display: block;
+    width: 0;
+}
+
+
+.introduction_slide_2 .woman_helper_bubble_1:after{
+    content:"";
+    position: absolute;
+    right: 85%;
+    top: 97px;
+    border-width:0 0 35px 40px;
+    border-style:solid;
+    border-color:transparent #fff;
+    /* reduce the damage in FF3.0 */
+    display:block;
+    width:0;
+}
+
+.introduction_slide_2 .woman_helper_bubble_2{
+    width: 380px;
+    height: 80px;
+    border: 3px solid #afb1c1;
+    position: relative;
+    bottom:0px;
+    left:140px;
+    -moz-border-radius:    10px;
+    -webkit-border-radius: 10px;
+    border-radius:         10px;
+}
+.introduction_slide_2 .woman_helper_bubble_2:before{
+    content:"";
+    position: absolute;
+    right: 100%;
+    top: 16px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 46px solid #afb1c1;
+    border-bottom: 13px solid transparent;
+}
+.introduction_slide_2 .woman_helper_bubble_2:after{
+    content:"";
+    position: absolute;
+    right: 99%;
+    top: 21px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-right: 43px solid white;
+    border-bottom: 8px solid transparent;
+}
+
+.woman_helper_bubble{
+    -moz-border-radius:    10px;
+    -webkit-border-radius: 10px;
+    border-radius:         10px;
+    border: 3px solid #1a3a6a;
+    text-align:center;
+}
+
+.woman_helper_bubble_first_day_complete{
+    width: 380px;
+    position:absolute;
+    bottom:70px;
+    left:140px;
+    font-size:17px;
+    padding:7px 13px;
+}
+.woman_helper_bubble_first_day_complete p{
+    padding: 0;
+    margin:5px 0;
+}
+
+
+.woman_helper_bubble_first_day_complete:before{
+    content:"";
+    position: absolute;
+    right: 100%;
+    bottom: 40px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 46px solid #1a3a6a;
+    border-bottom: 13px solid transparent;
+}
+.woman_helper_bubble_first_day_complete:after{
+    content:"";
+    position: absolute;
+    left: -43px;
+    bottom: 45px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-right: 43px solid white;
+    border-bottom: 8px solid transparent;
+}
+
+.woman_helper_bubble_VitMin_top{
+
+}
+/* intro slides animations */
+.wave-enter, .wave-leave {
+    -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 3s;
+    -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 3s;
+    -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 3s;
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 3s;
+}
+
+.wave-enter {
+    position:absolute;
+    left:-100%;
+}
+
+.wave-enter.wave-enter-active {
+    left:0;
+}
+
+.wave-leave {
+    position:absolute;
+    left:0;
+}
+
+.wave-enter.wave-leave-active {
+    left:100%;
+}
+
+/* end intro slides animations */
+
+
+
+.input_user_info .btn{
+    display:block;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+}
+
+
+
+
+/* Remove #LL-input-data to make the sides of the background grey (in
+the pages where it is white)*/
+#LL-input-data, .input_add_product_to_meal{
+    position:relative;
+    width:813px;
+    height:610px;
+    margin: 0px auto 0 auto;
+}
+
+img.larder_picture
+{
+    display: block;
+    margin: 0;
+    position:absolute;
+    top:0;
+    left:0;
+    width:813px;
+    height:610px;
+}
+
+.day_text_in_larder{
+    display:block;
+    position: absolute;
+    top:140px;
+    left: 385px;
+    width:415px;
+
+}
+
+.day_text_in_larder p{
+    text-align: center;
+    font-size: 40px;
+}
+
+.larder_to_show{
+    display:block;
+    position: absolute;
+    top:55px;
+    left: 0px;
+    width:813px;
+}
+.larder_to_show p{
+    display:inline-block;
+    font-size: 32px;
+    color: white;
+    padding: 0px 20px 3px 20px;
+}
+.larder_selected{
+    background-color: rgba(255,255,255,0.5);
+}
+
+.larder_shelf_left_1{
+    width:200px;
+    position:absolute;
+    top:213px;
+    left:396px;
+    text-align:center;
+}
+.larder_shelf_left_2{
+    width:200px;
+    position:absolute;
+    top:281px;
+    left:391px;
+    text-align:center;
+}
+.larder_shelf_left_3{
+    width:200px;
+    position:absolute;
+    top:356px;
+    left:391px;
+    text-align:center;
+}
+.larder_shelf_left_4{
+    width:200px;
+    position:absolute;
+    top: 421px;
+    left:391px;
+    text-align:center;
+}
+.larder_shelf_left_5{
+    width:200px;
+    position:absolute;
+    top:489px;
+    left:391px;
+    text-align:center;
+}
+.larder_shelf_left_6{
+    width:200px;
+    position:absolute;
+    top:557px;
+    left:391px;
+    text-align:center;
+}
+.larder_shelf_right_1{
+    width:200px;
+    position:absolute;
+    top:213px;
+    left:593px;
+    text-align:center;
+}
+.larder_shelf_right_2{
+    width:200px;
+    position:absolute;
+    top:281px;
+    left:593px;
+    text-align:center;
+}
+.larder_shelf_right_3{
+    width:200px;
+    position:absolute;
+    top:356px;
+    left:593px;
+    text-align:center;
+}
+.larder_shelf_right_4{
+    width:200px;
+    position:absolute;
+    top:421px;
+    left:593px;
+    text-align:center;
+}
+.larder_shelf_right_5{
+    width:200px;
+    position:absolute;
+    top:489px;
+    left:593px;
+    text-align:center;
+}
+.larder_shelf_right_6{
+    width:200px;
+    position:absolute;
+    top:559px;
+    left:593px;
+    text-align:center;
+}
+.modalRemoveProduct{
+    display: block;
+    width: 300px;
+    height: 440px;
+    border: solid 1px;
+    background-color: white;
+    position: absolute;
+    top: 100px;
+    left:400px;
+    overflow-y:hidden;
+}
+
+.modalAddProduct
+{
+    display: block;
+    width: 300px;
+    border: solid 1px;
+    background-color: white;
+    position: absolute;
+    top: 100px;
+    left:400px;
+    overflow-y:hidden;
+}
+.modalSaveOpenDiet
+{
+    display: block;
+    width: 550px;
+    border: solid 1px;
+    background-color:rgba(0,0,0,0);
+    position:absolute;
+    top:55px;
+    margin: 0 auto;
+    height:100%;
+    border:0px;
+    overflow-y: visible;
+}
+.modalSaveOpenDiet .box{
+    border:solid 3px #7FA6EE;
+    width:97%;
+    position: relative;
+    margin: 10px auto;
+    padding:3px;
+    background-color: white;
+    outline: white solid 4px;
+}
+
+.modalMacronutrients
+{
+    display: block;
+    width: 600px;
+    border: solid 1px;
+    background-color:rgba(0,0,0,0);
+    position:absolute;
+    top:40px;
+    left:430px;
+    height:auto;
+    border:0px;
+    overflow-y: visible;
+    overflow-x:visible;
+}
+.modalMacronutrients .box{
+    border:solid 3px #7FA6EE;
+    width:97%;
+    position: relative;
+    margin: 10px auto;
+    padding:13px;
+    background-color: white;
+    outline: white solid 4px;
+}
+.modalShowProductInformation{
+    display: block;
+    width: 300px;
+    height:315px;
+    border: solid 1px;
+    background-color: white;
+    position: absolute;
+    top: 90px;
+    left:485px;
+    overflow-y:hidden;
+}
+
+.origin_label{
+    position:relative;
+}
+.origin_label img{
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+
+}
+img.input-checked{
+    width: 40px;
+    height:auto;
+    position:absolute;
+    top: 0;
+    right:0px;
+}
+.table_for_products{
+    position:absolute;
+    top: 460px;
+    left:75px;
+    width: 300px;
+    text-align:center;
+}
+.table_for_products img{
+    width: 38px;
+    display:inline-block;
+    border:0px;
+    padding:0;
+    margin:0;
+}
+.meal_complete{
+    color:green;
+}
+table.weeklyMealsTableClass{
+    color:white;
+    margin:0 auto;
+}
+th, td{
+    font-size:13px;
+    border:1px solid white;
+    text-align: center;
+}
+
+.dark_row{
+    background-color: #efdabb;
+}
+.light_row{
+    background-color: #f4e4ce;
+}
+th{
+    background-color: #2e4a6d;
+    height:30px;
+    width:85px;
+}
+td.meal_column{
+    width:85px;
+    height:30px;
+}
+.dark_row td.meal_column{
+    background-color: #878ca3;
+}
+.light_row td.meal_column{
+    background-color: #afb1c1;
+}
+
+
+.results_overview_box{
+    display:inline-block;}
+
+.results_overview_box h2{
+    font-size:22px;
+}
+
+.GHADR{
+    margin-bottom:5px;
+}
+.GHADR_left, .GHADR_right{
+    display:inline-block;
+    width: 350px;
+    margin:15px;
+}
+
+.GHADR_right, .GHADR_right img{
+    float:right
+}
+
+.GHADR div{
+    border:1px solid;
+    padding:5px;
+    margin: 0 45px
+}
+.GHADR img, .GHADR_legend img{
+    width:40px;
+    display: inline-block;
+    float:left;
+}
+.general_health_and_disease_risk_window h1{
+    font-size:27px;
+    text-align: center;
+}
+.GHADR h2{
+    margin:0;
+    font-size:12px;
+}
+.GHADR p{
+    margin: 5px;
+    font-size:11px;
+}
+.GHADR_legend{
+    margin:-10px 0 0 80px;
+    padding:0;
+    font-size:11px;
+    float:left
+}
+.GHADR_legend img{
+    width:20px;
+}
+.GHADR_bottom_text{
+    font-size:12px;
+    display:inline-block;
+    float: right;
+    width: 290px;
+    margin-right:20px;
+}
+.GHADR_right img{
+    float:right
+}
+
+.vitamins{
+    padding: 15px 0 0 15px;
+    font-size:16px;
+    font-weight:bold;
+}
+.vitamins h1, .minerals h1{
+    margin:0;
+    padding: 0;
+    font-size:25px;
+}
+.vitamins_table{
+    text-align:center;
+    padding-top:0px;
+}
+.vitamins_box{
+    display:inline-block;
+    margin:10px 11px;
+}
+
+.vitamins_box img, .minerals_box img{
+    width:45px;
+}
+.vitamins_box p, .minerals p{
+    margin:0;
+}
+.minerals{
+    padding: 0 15px;
+    margin: 10px 0 0 0;
+    font-size: 16px;
+    font-weight:bold;
+}
+.minerals_table{
+    text-align:center;
+}
+.minerals_box{
+    display:inline-block;
+    margin:10px 25px;
+}
+
+
+.VitMin_legend img{
+    width:20px;
+    display: inline-block;
+    float:left;
+}
+.VitMin_legend{
+    position:absolute;
+    bottom: 90px;
+    right:20px;
+    font-size:11px;
+}
+.VitMin_buttons{
+    display:inline-block;
+    float:right;
+    margin: 10px 115px;
+}
+.introduction_window_box{
+    padding:0 25px;
+}
+.display_weekly_table{
+    padding:25px;
+    margin-top: 50px;
+}
+.introduction_form{
+    margin: 0 35px;
+}
+.input_show_larder_btn{
+    z-index:100;
+    position:absolute;
+    top:566px;
+    left: 25px;
+}
+.LL-button{
+    display:inline-block;
+    border:1px solid;
+    padding:10px;
+    border-radius:15px;
+    -moz-border-radius:15px;
+    -webkit-border-radius:15px;
+    -webkit-box-shadow: 0px 3px 3px 1px grey;
+    -moz-box-shadow: 0px 3px 3px 1px grey;
+    box-shadow: 0px 3px 3px 1px grey;
+
+border-image:url("../img/LL-button.png")
+34 fill;
+    border-image-width: 10px;
+
+/*-webkit-border-image:url("../img/LL-button.png")
+34 fill;
+    -webkit-border-image-width: 10px; */
+
+-o-border-image:url("../img/LL-button.png")
+34 fill;
+    cursor: pointer;
+}
+.LL-button:hover{
+
+border-image:url("../img/LL-button-hover.png")
+34 fill;
+    border-image-width: 10px;
+
+/*-webkit-border-image:url("../img/LL-button-hover.png")
+34 fill;
+    -webkit-border-image-width: 10px;   */
+
+-o-border-image:url("../img/LL-button-hover.png")
+34 fill;
+}
+button[disabled=disabled].LL-button{
+
+border-image:url("../img/LL-button-disabled.png")
+34 fill;
+    border-image-width:10px;
+
+/*-webkit-border-image:url("../img/LL-button-disabled.png")
+76 120 80 70 fill;
+-webkit-border-image-width: 50px;
+-webkit-border-image-outset:25px;*/
+
+-o-border-image:url("../img/LL-button-disabled.png")
+34 fill;
+}
+
+.LL-button-to-the-right{
+    background: white;
+    display:inline-block;
+    border:1px solid;
+    padding: 0 6px 3px 0;
+    border-radius:15px;
+    -moz-border-radius:15px;
+    -webkit-border-radius:15px;
+    -webkit-box-shadow: 0px 3px 3px 1px grey;
+    -moz-box-shadow: 0px 3px 3px 1px grey;
+    box-shadow: 0px 3px 3px 1px grey;
+    cursor: pointer;
+
+border-image:url("../img/LL-button-to-the-right.png")
+76 120 80 70 fill;
+    border-image-width:50px;
+    border-image-outset:25px;
+
+/*-webkit-border-image:url("../img/LL-button-to-the-right.png")
+76 120 80 70 fill;*/
+
+-o-border-image:url("../img/LL-button.png-to-the-right.png")
+76 120 80 70 fill;
+
+}
+.LL-button-to-the-right:hover{
+
+border-image:url("../img/LL-button-to-the-right-hover.png")
+76 120 80 70 fill;
+    border-image-width:50px;
+    border-image-outset:25px;
+
+/*-webkit-border-image:url("../img/LL-button-to-the-right-hover.png")
+76 120 80 70 fill;
+    -webkit-border-image-width: 50px;
+    -webkit-border-image-outset:25px;*/
+
+-o-border-image:url("../img/LL-button-to-the-right-hover.png")
+76 120 80 70 fill;
+}
+button[disabled=disabled].LL-button-to-the-right{
+
+border-image:url("../img/LL-button-to-the-right-disabled.png")
+76 120 80 70 fill;
+    border-image-width:50px;
+    border-image-outset:25px;
+
+/*-webkit-border-image:url("../img/LL-button-to-the-right-disabled.png")
+76 120 80 70 fill;
+    -webkit-border-image-width: 50px;
+    -webkit-border-image-outset:25px;*/
+
+-o-border-image:url("../img/LL-button-to-the-right-disabled.png")
+76 120 80 70 fill;
+}
+
+.LL-button-to-the-left{
+    background:white;
+    display:inline-block;
+    border:1px solid;
+    padding:0 0 3px 6px;
+    border-radius:15px;
+    -moz-border-radius:15px;
+    -webkit-border-radius:15px;
+    -webkit-box-shadow: 0px 3px 3px 1px grey;
+    -moz-box-shadow: 0px 3px 3px 1px grey;
+    box-shadow: 0px 3px 3px 1px grey;
+    cursor: pointer;
+
+border-image:url("../img/LL-button-to-the-left.png")
+76 70 80 120 fill;
+    border-image-width:50px;
+    border-image-outset:25px;
+
+/*-webkit-border-image:url("../img/LL-button-to-the-left.png")
+76 70 90 120 fill;
+    -webkit-border-image-width: 10px;
+    -webkit-border-image-outset:25px;*/
+
+-o-border-image:url("../img/LL-button.png-to-the-left")
+76 70 80 120 fill;
+
+}
+.LL-button-to-the-left:hover{
+
+border-image:url("../img/LL-button-to-the-left-hover.png")
+76 70 80 120 fill;
+    border-image-width:50px;
+    border-image-outset:25px;
+
+/*-webkit-border-image:url("../img/LL-button-to-the-left-hover.png")
+76 70 90 120 fill;
+    -webkit-border-image-width: 10px;
+    -webkit-border-image-outset:25px;*/
+
+-o-border-image:url("../img/LL-button-to-the-left-hover.png")
+76 70 80 120 fill;
+}
+button[disabled=disabled].LL-button-to-the-left{
+
+border-image:url("../img/LL-button-to-the-left-disabled.png")
+34 fill;
+    border-image-width:50px;
+    border-image-outset:25px;
+
+/*-webkit-border-image:url("../img/LL-button-to-the-left-disabled.png")
+76 120 80 70 fill;
+    -webkit-border-image-width: 50px;
+    -webkit-border-image-outset:25px;*/
+
+-o-border-image:url("../img/LL-button-to-the-left-disabled.png")
+34 fill;
+}
+
+a:hover{
+    text-decoration:none;
+}
+
+.woman_helper_bubble_VitMin_top{
+    width: 380px;
+    height: 80px;
+    border: 3px solid #afb1c1;
+    position: relative;
+    bottom:0px;
+    left:140px;
+    -moz-border-radius:    10px;
+    -webkit-border-radius: 10px;
+    border-radius:         10px;
+}
+.woman_helper_bubble_VitMin_bottom{
+    width: 550px;
+    height: 70px;
+    border: 3px solid #afb1c1;
+    position: relative;
+    bottom:0px;
+    margin:5px 0;
+    left:140px;
+    -moz-border-radius:    10px;
+    -webkit-border-radius: 10px;
+    border-radius:         10px;
+}
+.woman_helper_bubble_VitMin_top:before{
+    content:"";
+    position: absolute;
+    right: 100%;
+    top: 16px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 46px solid #afb1c1;
+    border-bottom: 13px solid transparent;
+}
+.woman_helper_bubble_VitMin_bottom:before{
+    content:"";
+    position: absolute;
+    right: 100%;
+    top: 16px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 46px solid #afb1c1;
+    border-bottom: 13px solid transparent;
+}
+.introduction_slide_1 .woman_helper_bubble_1:before,
+.woman_helper_bubble_user_info:before{
+    content:"";
+    position: absolute;
+    right: 100%;
+    top: 16px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 46px solid #afb1c1;
+    border-bottom: 13px solid transparent;
+}
+.introduction_slide_1 .woman_helper_bubble_1:after{
+    content:"";
+    position: absolute;
+    right: 99%;
+    top: 21px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-right: 43px solid white;
+    border-bottom: 8px solid transparent;
+}
+
+.modalProductsAndSubcategories{
+    display: block;
+    margin:25px auto 0 auto;
+    overflow-y:hidden;
+    -moz-box-sizing: content-box;
+    -moz-box-sizing:content-box;
+    width:350px;
+}
+.modalCopyMealToOtherDaysShortcut{
+    display: block;
+    margin:25px auto 0 auto;
+    overflow-y:hidden;
+    -moz-box-sizing: content-box;
+    -moz-box-sizing:content-box;
+    width:350px;
+}
+.choose_product_or_subcategory, .choose_size_and_origin,
+.copy-meal-to-other-day{
+    background:white;
+    padding-bottom:15px;
+}
+.introduction_form label{
+    margin-left: 20px;
+}
+.portions_container label{
+    text-align:center;
+}
+.portions_container h4{
+    margin:15px 0 0 15px;
+}
+.choose_size_and_origin .box{
+    padding-bottom:0px;
+}
+.copy-meal-to-other-day .box{
+    padding:15px;
+}
+.weeklyMealsTableClass img{
+    width:20px;
+    padding-top:2px;
+}
+.day_text_in_larder{
+    color:white;
+}
+input[type=number]{
+    margin-left:40px;
+    width:40px;
+}
+.portions_container label input{
+    margin-left:15px;
+    margin-right:5px;
+}
+.copy-meal-to-other-day p{
+    margin-left:25px;
+}
+.copy-meal-to-other-day .LL-button-to-the-right{
+    display:block;
+    position:relative;
+    left:260px;
+    margin:20px 0 5px;
+    bottom:5px;
+}
+.modalProductsAndSubcategories .buttons{
+    text-align:right;
+}
+.modalProductsAndSubcategories .buttons button{
+    margin: 15px 25px 25px ;
+}
+.input_user_info button{
+    position:absolute;
+    bottom:30px;
+    right: 55px;
+}
+.display_weekly_table_btn{
+    position:absolute;
+    bottom:18px;
+    right: 15px;
+}
+
+.display_weekly_table_btn button{
+    margin: 0 15px 5px 15px;
+}
+
+.display_weekly_table_woman_text{
+    display:block;
+    font-size:16px;
+    padding:10px;
+}
+.woman_helper_bubble_user_info{
+    width: 380px;
+    position: absolute;
+    bottom:100px;
+    left:140px;
+
+}
+.woman_helper_bubble_user_info:before{
+    content:"";
+    position: absolute;
+    right: 100%;
+    top: 40px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 46px solid #1a3a6a;
+    border-bottom: 13px solid transparent;
+}
+.woman_helper_bubble_user_info:after{
+    content:"";
+    position: absolute;
+    left: -43px;
+    top: 45px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-right: 43px solid white;
+    border-bottom: 8px solid transparent;
+}
+.woman_helper_bubble_user_info p{
+    display:block;
+    font-size:18px;
+    padding:10px;
+    margin:0;
+}
+.choose_product_or_subcategory .buttons{
+    padding:25px;
+}
+
+.woman_helper_bubble_weekly_table_complete{
+    position:absolute;
+    bottom:90px;
+    left:140px;
+    font-size:17px;
+    padding:7px 13px;
+}
+.woman_helper_bubble_weekly_table_complete p{
+    padding: 0;
+    margin:5px 0;
+}
+.woman_helper_bubble_weekly_table_complete:before{
+    content:"";
+    position: absolute;
+    right: 100%;
+    top: 35px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 46px solid #1a3a6a;
+    border-bottom: 13px solid transparent;
+}
+.woman_helper_bubble_weekly_table_complete:after{
+    content:"";
+    position: absolute;
+    left: -43px;
+    top: 40px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-right: 43px solid white;
+    border-bottom: 8px solid transparent;
+}
+.show_larder_help{
+    background:white;
+    position:absolute;
+    top:195px;
+    left:85px;
+    padding-bottom:10px;
+    width: 280px;
+    height:240px;
+}
+.show_larder_help img{
+    width:90px;
+    position:absolute;
+    bottom:0;
+    left:-6px;
+}
+
+.show_larder_woman_help_text p{
+    padding: 0 5px;
+    margin:5px 0;
+    line-height:13px;
+    font-size:13px;
+}
+.show_larder_woman_help_text{
+    position:absolute;
+    top:5px;
+    left:10px;
+    width:230px;
+}
+.show_larder_woman_help_text:before{
+    content:"";
+    position: absolute;
+    left: 20%;
+    bottom: -30px;
+    width: 0;
+    height: 0;
+    border-top: 30px solid #1a3a6a;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    border-bottom: 0px;
+}
+.show_larder_woman_help_text:after{
+    content:"";
+    position: absolute;
+    left: 48px;
+    top: 65px;
+    width: 0;
+    height: 0;
+    border-top: 26px solid white;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-bottom: 0px;
+}
+.show_larder_help_text{
+    font-size: 11px;
+    position: absolute;
+    bottom:-8px;
+    right: 0;
+    width:200px;
+}
+.show_larder_help button{
+    position:absolute;
+    top:0;
+    right:2px;
+}
+.modalRemoveProductConfirmation{
+    display: block;
+    margin:25px auto 0 auto;
+    overflow-y:hidden;
+    -moz-box-sizing: content-box;
+    -moz-box-sizing:content-box;
+    width:350px;
+    background:white;
+}
+.modalRemoveProductConfirmation .box{
+    padding: 0 15px;
+    height:200px;
+}
+.modalRemoveProductConfirmation{
+    height:215px;
+}
+.modalRemoveProductConfirmation button{
+
+}
+.modalRemoveProductConfirmation .buttons{
+    position:relative;
+    left:70px;
+    top:20px;
+    width:250px
+}
+.search_box{
+    z-index:1000;
+    background:white;
+    position:absolute;
+    top:0;
+    right:20px;
+    width:220px;
+    height:60px;
+
+background:url("../img/search_box.png")
+no-repeat;
+    background-size:220px 60px;
+
+}
+.search_box input{
+    position:relative;
+    left:55px;
+    top:15px;
+    width:145px;
+}
+input[type=search]{
+    -webkit-appearance: none;
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    border: 0px;
+}
+
+.search_results{
+    background:rgba(255,255,255,0.95);
+    position:absolute;
+    top:50px;
+    right:30px;
+    width:190px;
+    font-size:12px;
+    line-height:13px;
+}
+.search_results ul{
+    padding-left:29px;
+    list-style-type:square;
+}
+.search_results li{
+    margin-top:5px;
+}
+
+.results_window_box{
+    padding:0 15px;
+}
+.main_results_window h1{
+    text-align:center;
+    margin-top:10px;
+}
+
+.chart1, .chart2{
+    text-align:center;
+}
+
+.chart1 chart{
+    display: block;
+    width:750px;
+    height:200px;
+    margin:auto;
+}
+.chart2{
+    float:right;
+}
+.chart2 chart{
+    display: block;
+    width:200px;
+    height:200px;
+    float:right;
+}
+.chart1 h2, .chart2 h2{
+    font-size:15px;
+    margin:10px 0 0 0;
+}
+.chart2 h2{
+    margin-right:20px;
+}
+.woman_helper_bubble_GHGE{
+    width: 370px;
+    position:absolute;
+    bottom:75px;
+    left:155px;
+    font-size:17px;
+    padding:7px 13px;
+}
+.woman_helper_bubble_GHGE p{
+    padding: 0;
+    margin:5px 0;
+}
+
+
+.woman_helper_bubble_GHGE:before{
+    content:"";
+    position: absolute;
+    right: 100%;
+    top: 45px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 46px solid #1a3a6a;
+    border-bottom: 13px solid transparent;
+}
+.woman_helper_bubble_GHGE:after{
+    content:"";
+    position: absolute;
+    left: -43px;
+    top: 50px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-right: 43px solid white;
+    border-bottom: 8px solid transparent;
+}
+img.woman_helper_GHGE{
+    width:160px;
+    margin-top:61px;
+    position:relative;
+    left:-20px;
+}
+.main_results_window button{
+    position:absolute;
+    bottom:22px;
+    right:70px;
+}
+.T5E{
+    text-align: right;
+}
+.T5E h2{
+    margin:0;
+    text-align: center
+}
+.T5E table{
+    display:block;
+    color: white;
+    width:70%;
+    padding:0;
+    margin: 0px auto 10px auto;
+}
+.T5E .meal_column{
+    color: white;
+}
+.T5E .light_row, .T5E .dark_row{
+    color: black;
+}
+.T5E td, .T5E th{
+    padding:5px 15px;
+}
+td.item_column, td.fg_column{
+    width: 1000%;
+    height:20px;
+}
+div.T5E-buttons{
+    position:absolute;
+    bottom:0;
+    right:0;
+    width:100%;
+    text-align:right;
+}
+.T5E-buttons .LL-button-to-the-right,  .T5E-buttons .LL-button-to-the-left{
+    display:inline-block;
+    width:auto;
+    margin:0;
+    position:relative;
+    right:10px;
+    margin:0 25px;
+}
+
+
+.woman_helper_T5E{
+    margin-top:5.5px;
+    position:relative;
+    left:-20px;
+}
+.woman_helper_bubble_T5E{
+    width: 530px;
+    position:absolute;
+    bottom:78px;
+    left:155px;
+    font-size:17px;
+    padding:7px 13px;
+}
+.woman_helper_bubble_T5E p{
+    padding: 0;
+    margin:5px 0;
+}
+
+.woman_helper_bubble_T5E:before{
+    content:"";
+    position: absolute;
+    right: 100%;
+    top: 55px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 46px solid #1a3a6a;
+    border-bottom: 13px solid transparent;
+}
+.woman_helper_bubble_T5E:after{
+    content:"";
+    position: absolute;
+    left: -43px;
+    top: 60px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-right: 43px solid white;
+    border-bottom: 8px solid transparent;
+}
+
+.GHADR_1 .body{
+    float:left;
+    width:115px;
+}
+div.GHADR_PROT{
+    display:inline-block;
+}
+img.woman_helper_GHADR1{
+    position:relative;
+    left:-20px;
+}
+
+.GHADR1_legend img{
+    width:20px;
+}
+.GHADR1-buttons{
+    position:absolute;
+    bottom:25px;
+    right:15px;
+}
+.GHADR1-buttons button{
+    display:inline-block;
+    margin: 0 25px;
+}
+.woman_helper_GHADR1{
+    position:absolute;
+    bottom:0;
+    left:-10px;
+}
+.woman_helper_bubble_GHADR1{
+    width: 530px;
+    position:absolute;
+    bottom:85px;
+    left:155px;
+    font-size:17px;
+    padding:7px 13px;
+}
+.woman_helper_bubble_GHADR1 p{
+    padding: 0;
+    margin:5px 0;
+}
+
+.woman_helper_bubble_GHADR1:before{
+    content:"";
+    position: absolute;
+    right: 100%;
+    top: 45px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 46px solid #1a3a6a;
+    border-bottom: 13px solid transparent;
+}
+.woman_helper_bubble_GHADR1:after{
+    content:"";
+    position: absolute;
+    left: -43px;
+    top: 50px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-right: 43px solid white;
+    border-bottom: 8px solid transparent;
+}
+.GHADR1_legend{
+    display:block;
+    margin:10px;
+    text-align:right;
+}
+.GHADR1_legend p, .GHADR1_legend img{
+    display:inline-block;}
+.GHADR1_legend img{
+    margin:0px 5px 0 15px;
+}
+.GHADR_1 h1{
+    text-align:center;
+}
+
+.GHADR1-content{
+    margin:15px auto;
+    width:650px;
+
+}
+.GHADR_PROT, .GHADR_FIBRE{
+    display:inline-block;
+    margin:0 15px 0 0;;
+    width:80%;
+}
+.GHADR_PROT img, .GHADR_FIBRE img{
+    width:50px;
+    margin-top:5px;
+    margin-left:3px;
+    float:right;
+}
+.GHADR_PROT h2, .GHADR_FIBRE h2{
+    font-size:15px;
+    margin:15px 0 0 0;
+}
+.GHADR_PROT p, .GHADR_FIBRE p{
+    font-size:14px;
+}
+.GHADR_PROT div, .GHADR_FIBRE div{
+    border: 1px solid;
+    display:inline-block;
+    width:87%;
+    margin:0 0px 5px 10px;
+    padding:0 5px 0 10px;
+}
+
+
+.GHADR_left img, .GHADR_right img{
+    display:inline-block;
+}
+.GHADR_left img, .GHADR_right img{
+    width:50px;
+    vertical-align:top;
+    margin-top:12px;
+}
+.GHADR_2 .body{
+    width:150px;
+    display:inline-block;
+    vertical-align:top;
+}
+.GHADR_2 p, .GHADR_2 h2{
+    width:100%;
+}
+.GHADR2 div{
+    display:inline-block;
+    width:100%;
+}
+div.GHADR_left,div.GHADR_right{
+    display:inline-block;
+    width:39%;
+}
+.GHADR2 div{
+    display:inline-block;
+    width:78%;
+}
+.GHADR2 h2{
+    font-size:15px;
+    margin:15px 0 0 0;
+}
+.GHADR_left,.GHADR_right{
+    margin:10px 0;}
+.woman_helper_GHADR2{
+    position:relative;
+    bottom:0;
+    left:-20px;
+    width:115px;
+    margin-top:-10px;
+}
+.woman_helper_bubble_GHADR2{
+    width: 400px;
+    position:absolute;
+    bottom:20px;
+    left:125px;
+    font-size:17px;
+    padding:7px 13px;
+}
+.woman_helper_bubble_GHADR2 p{
+    padding: 0;
+    margin:5px 0;
+    font-size:14px;
+    line-height:18px;
+}
+
+.woman_helper_bubble_GHADR2:before{
+    content:"";
+    position: absolute;
+    right: 100%;
+    top: 8px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 46px solid #1a3a6a;
+    border-bottom: 13px solid transparent;
+}
+.woman_helper_bubble_GHADR2:after{
+    content:"";
+    position: absolute;
+    left: -43px;
+    top: 12px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-right: 43px solid white;
+    border-bottom: 8px solid transparent;
+}
+.GHADR2_legend{
+    display:block;
+    position:absolute;
+    top:420px;
+    right: 50px;
+    width:180px;
+
+}
+.GHADR2_legend img{
+    width:25px;
+    display:inline-block;
+    margin:0 3px;
+    vertical-align:top;
+}
+.GHADR2_legend p{
+    font-size:12px;
+    display:inline-block;
+    width:auto;
+}
+.legend-body{
+    width:150px;
+    display:inline-block;
+    vertical-align:top;
+}
+.legend-body .body{
+    display:block;
+    margin:10px auto 0 auto;
+}
+
+.woman_helper_VitMin{
+    width:130px;
+    position:relative;
+    bottom:0;
+    left:-20px;
+    margin-top:-31px;
+}
+.woman_helper_bubble_VitMin{
+    width: 400px;
+    position:absolute;
+    bottom:37px;
+    left:125px;
+    font-size:17px;
+    padding:5px 7px;
+}
+.woman_helper_bubble_VitMin p{
+    padding: 0;
+    font-size:15px;
+    margin:2px 0;
+}
+
+.woman_helper_bubble_VitMin:before{
+    content:"";
+    position: absolute;
+    right: 100%;
+    top: 15px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 46px solid #1a3a6a;
+    border-bottom: 13px solid transparent;
+}
+.woman_helper_bubble_VitMin:after{
+    content:"";
+    position: absolute;
+    left: -43px;
+    top: 20px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-right: 43px solid white;
+    border-bottom: 8px solid transparent;
+}
+.VitMin-buttons{
+    position:absolute;
+    bottom:25px;
+    right:15px;
+}
+.VitMin-buttons button{
+    margin: 0 25px;
+}
+.VitMin_window h1{
+    text-align: center;
+}
+.VitMin_window h2{
+    margin:0;
+}
+
+
+.woman_helper_summary{
+    width:130px;
+    display:block;
+
+}
+.woman_helper_bubble_summary{
+    width: 450px;
+    position:absolute;
+    bottom:85px;
+    left:155px;
+    font-size:17px;
+    padding:5px 7px;
+}
+.woman_helper_bubble_summary p{
+    padding: 0;
+    font-size:15px;
+    margin:2px 0;
+}
+
+.woman_helper_bubble_summary:before{
+    content:"";
+    position: absolute;
+    right: 100%;
+    top: 30px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 46px solid #1a3a6a;
+    border-bottom: 13px solid transparent;
+}
+.woman_helper_bubble_summary:after{
+    content:"";
+    position: absolute;
+    left: -43px;
+    top: 35px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-right: 43px solid white;
+    border-bottom: 8px solid transparent;
+}
+.summary-buttons{
+    position:absolute;
+    bottom:25px;
+    right:15px;
+}
+.summary-buttons button{
+    margin: 0 0 0 15px;
+}
+.summary-buttons .LL-button-to-the-right{
+    margin:0 20px 0 35px;
+}
+table.summaryTable{
+    width:100%;
+}
+.summaryTable td, .summaryTable th{
+    color:white;}
+
+
+.summaryTable p{
+    color:black;
+    padding:0;
+    margin:1px;;
+    display:inline-block;
+    border:1px solid;
+    width:70px;
+        overflow:hidden;
+    font-size:10px;
+    -moz-border-radius:    5px;
+    -webkit-border-radius: 5px;
+    border-radius:         5px;
+    background: white;
+    -webkit-box-shadow: 1px 1px 2px 0.2px grey;
+    -moz-box-shadow: 1px 1px 2px 0.2px grey;
+    box-shadow: 1px 1px 2px 0.2px grey;
+    vertical-align:middle
+}
+p.add-product{
+    color:black;
+    padding:0;
+    margin:1px;;
+    display:inline-block;
+    border:1px solid;
+    width:70px;
+    height:16px;
+    overflow:hidden;
+    font-size:10px;
+    -moz-border-radius:    5px;
+    -webkit-border-radius: 5px;
+    border-radius:         5px;
+    background: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+.summaryTable td.meal_column{
+    width: 13%;
+}
+.summary_window h1{
+    text-align:center;
+    margin:5px;
+}
+.product-information-buttons{
+    margin:10px 0;
+    width:100%;
+    text-align:right;
+}
+.modalShowProductInformation .remove-box{
+    display: block;
+    width: 100%;
+    text-align: right;
+}
+.summary_window .chart1 chart{
+    display: block;
+    width:500px;
+    height:200px;
+    margin:auto;
+}
+.summary_window .chart2 chart{
+    display: block;
+    width:180px;
+    height:153px;
+    margin:auto;
+}
+.summary .chart2{
+    float:none;
+}
+.summary_window .chart1, .summary_window .chart2{
+    display:inline-block;
+    margin-top:10px;
+}
+
+.summary_window td{
+    position:relative;
+}
+.summary_window .add-product{
+    display:block;
+    width: auto;
+    height:auto;
+    line-height:5px;
+    float:left;
+    padding:1px;
+    margin:1.2px;
+}
+
+
+.modalAddProduct .search_box{
+    position:relative;
+    margin: 0 auto;
+}
+
+.modalAddProduct{
+    background-color:rgba(0,0,0,0);
+    position:absolute;
+    top:90px;
+    left:480px;
+    height:100%;
+    border:0px;
+    overflow-y: visible;
+}
+.modalAddProduct .box{
+    border:solid 3px #7FA6EE;
+    width:97%;
+    position: relative;
+    margin: 10px auto;
+    padding:3px;
+    background-color: white;
+    outline: white solid 4px;
+}
+
+.modalAddProduct .search_box{
+    position:relative;
+    top:0;
+    left:5px;
+}
+.modalAddProduct .search_results{
+    position:relative;
+    top:-6px;
+    left:50px;
+}
+.modalAddProduct h3{
+    text-align:center;
+}
+.woman_helper_lowering_your_emissions{
+    position:relative;
+    bottom:0;
+    left:-20px;
+    width:115px;
+}
+.woman_helper_bubble_lowering_your_emissions{
+    width: 400px;
+    position:absolute;
+    bottom:80px;
+    left:125px;
+    font-size:17px;
+    padding:7px 13px;
+}
+.woman_helper_bubble_lowering_your_emissions p{
+    padding: 0;
+    margin:5px 0;
+    font-size:14px;
+    line-height:18px;
+}
+
+.woman_helper_bubble_lowering_your_emissions:before{
+    content:"";
+    position: absolute;
+    right: 100%;
+    top: 8px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 46px solid #1a3a6a;
+    border-bottom: 13px solid transparent;
+}
+.woman_helper_bubble_lowering_your_emissions:after{
+    content:"";
+    position: absolute;
+    left: -43px;
+    top: 12px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-right: 43px solid white;
+    border-bottom: 8px solid transparent;
+}
+.lowering_your_emissions-buttons{
+    position:absolute;
+    bottom:25px;
+    right:0px;
+    width:100%;
+    text-align:right;
+}
+.lowering_your_emissions-buttons .LL-button-to-the-right,
+.lowering_your_emissions-buttons .LL-button-to-the-left{
+    display:inline-block;
+    width:auto;
+    margin:0;
+    position:relative;
+    right:10px;
+    margin:0 25px;
+}
+.LYE th
+{
+    color:white
+}
+table.LYE{
+    width:100%;
+}
+
+table.LYE img{
+    width:50px;
+    margin:5px;
+}
+table.LYE td:nth-child(1){
+    width:20%;
+}
+table.LYE td:nth-child(3){
+    width:10%;
+}
+table.LYE td{
+    padding:5px 0;}
+table.LYE td p{
+    display:list-item;
+    margin:0 25px;
+    text-align: left;
+}
+.save-open-buttons{
+    text-align:right;
+    margin:25px 30px 5px 0;
+}
+.save-open-buttons button{
+    margin-left: 30px;
+}
+.modalSaveOpenDiet .box{
+    padding:15px;
+}
+.modalSaveOpenDiet .box h1{
+    margin-top:0px;
+}
+.modalSaveOpenDiet .box input[type=radio],.modalSaveOpenDiet .box label{
+    margin:0px 5px;
+    padding:0;
+}
+.modalSaveOpenDiet .checkbox{
+    margin: 10px 25px 0 25px;
+}
+.modalMacronutrients h1, .modalVitMin h1{
+    margin:0 0 10px 0;
+    font-size:22px;
+}
+.modalMacronutrients table, .modalVitMin table{
+    width:100%;
+}
+.modalMacronutrients table td, .modalVitMin table td{
+    vertical-align:top;
+}
+.modalMacronutrients p, .modalVitMin p{
+    text-align:center;
+    font-size:11px;
+    margin:1px 0 1px 5px;
+}
+.modalMacronutrients table p, .modalVitMin table p{
+    text-align:left;
+    font-size:12px;
+    margin:1px 0 1px 5px;
+}
+.woman_helper_macron, .woman_helper_vitmin{
+    width:100px;
+    margin:0;
+    padding:0;
+    position:relative;
+    bottom: -13px;;
+}
+.woman_helper_bubble_macron{
+    width: 100%;
+    max-width:310px;
+    position:absolute;
+    bottom:45px;
+    left:135px;
+    font-size:17px;
+    padding:5px 7px;
+}
+.woman_helper_bubble_macron p, .woman_helper_bubble_vitmin_1 p,
+.woman_helper_bubble_vitmin_2 p{
+    padding: 0;
+    font-size:13px;
+    margin:2px 0;
+    display:nonen
+}
+
+.woman_helper_bubble_macron:before{
+    content:"";
+    position: absolute;
+    right: 100%;
+    bottom: 40px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 46px solid #1a3a6a;
+    border-bottom: 13px solid transparent;
+}
+.woman_helper_bubble_macron:after{
+    content:"";
+    position: absolute;
+    left: -43px;
+    bottom: 45px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-right: 43px solid white;
+    border-bottom: 8px solid transparent;
+}
+
+.modalMacronutrients .lateral_menu{
+    position:absolute;
+    top:30px;
+    left:-150px;
+    width:125px;
+}
+.modalMacronutrients .lateral_menu img{
+    display:block;
+    width: 100px;
+    margin: 0 auto;
+}
+.modalMacronutrients .lateral_menu ul{
+    display:block;
+    background:rgba(255,255,255,.92);
+    list-style: none;
+    margin: 10px auto;
+    padding: 10px;
+}
+.modalMacronutrients .lateral_menu ul li{
+    margin:0;
+    padding:3px 7px;
+}
+.woman_helper_bubble_macron{
+    width: 100%;
+    max-width:310px;
+    position:absolute;
+    bottom:45px;
+    left:135px;
+    font-size:17px;
+    padding:5px 7px;
+}
+.woman_helper_bubble_macron_engfib_1 p{
+    padding: 0;
+    font-size:11px;
+    margin:2px 0;
+}
+.woman_helper_bubble_macron_engfib_1{
+    width: 100%;
+    max-width:400px;
+    position:absolute;
+    bottom:72px;
+    left:125px;
+    font-size:17px;
+    padding:5px 7px;
+}
+.woman_helper_bubble_macron_engfib_1:before{
+    content:"";
+    position: absolute;
+    right: 100%;
+    bottom: 10px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 46px solid #1a3a6a;
+    border-bottom: 13px solid transparent;
+}
+.woman_helper_bubble_macron_engfib_1:after{
+    content:"";
+    position: absolute;
+    left: -43px;
+    bottom: 15px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-right: 43px solid white;
+    border-bottom: 8px solid transparent;
+}
+.woman_helper_bubble_macron_engfib_2 p{
+    padding: 0;
+    font-size:11px;
+    margin:2px 0;
+}
+.woman_helper_bubble_macron_engfib_2{
+    width: 100%;
+    max-width:325px;
+    position:absolute;
+    bottom:2px;
+    left:150px;
+    font-size:17px;
+    padding:5px 7px;
+}
+
+.woman_helper_bubble_macron_engfib_2:before{
+    content:"";
+    position: absolute;
+    right: 100%;
+    bottom: 25px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 46px solid #1a3a6a;
+    border-bottom: 13px solid transparent;
+}
+.woman_helper_bubble_macron_engfib_2:after{
+    content:"";
+    position: absolute;
+    left: -43px;
+    bottom: 30px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-right: 43px solid white;
+    border-bottom: 8px solid transparent;
+}
+.modalVitMin
+{
+    display: block;
+    width: 600px;
+    border: solid 1px;
+    background-color:rgba(0,0,0,0);
+    position:absolute;
+    top:40px;
+    left:430px;
+    height:auto;
+    border:0px;
+    overflow-y: visible;
+    overflow-x:visible;
+}
+.modalVitMin .box{
+    border:solid 3px #7FA6EE;
+    width:97%;
+    position: relative;
+    margin: 10px auto;
+    padding:13px;
+    background-color: white;
+    outline: white solid 4px;
+}
+.modalVitMin .lateral_menu{
+    position:absolute;
+    top:6px;
+    left:-150px;
+    width:125px;
+}
+.modalVitMin .lateral_menu img{
+    display:block;
+    width: 100px;
+    margin: 0 auto;
+}
+.modalVitMin .lateral_menu ul{
+    display:block;
+    background:rgba(255,255,255,.9);
+    list-style: none;
+    margin: 0 auto;
+    padding: 10px;
+}
+.modalVitMin .lateral_menu ul li{
+    margin:0;
+    padding:3px 7px;
+}
+.woman_helper_bubble_vitmin{
+    width: 100%;
+    max-width:310px;
+    position:absolute;
+    bottom:45px;
+    left:135px;
+    font-size:17px;
+    padding:5px 7px;
+}
+.woman_helper_bubble_vitmin p{
+    padding: 0;
+    font-size:11px;
+    margin:2px 0;
+}
+.woman_helper_bubble_vitmin_1{
+    width: 100%;
+    max-width:400px;
+    position:absolute;
+    bottom:77px;
+    left:135px;
+    font-size:17px;
+    padding:5px 7px;
+}
+.woman_helper_bubble_vitmin_1:before{
+    content:"";
+    position: absolute;
+    right: 100%;
+    bottom: 10px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 46px solid #1a3a6a;
+    border-bottom: 13px solid transparent;
+}
+.woman_helper_bubble_vitmin_1:after{
+    content:"";
+    position: absolute;
+    left: -43px;
+    bottom: 15px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-right: 43px solid white;
+    border-bottom: 8px solid transparent;
+}
+
+.woman_helper_bubble_vitmin_2{
+    width: 100%;
+    max-width:325px;
+    position:absolute;
+    bottom:10px;
+    left:150px;
+    font-size:17px;
+    padding:5px 7px;
+}
+
+.woman_helper_bubble_vitmin_2:before{
+    content:"";
+    position: absolute;
+    right: 100%;
+    bottom: 15px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 46px solid #1a3a6a;
+    border-bottom: 13px solid transparent;
+}
+.woman_helper_bubble_vitmin_2:after{
+    content:"";
+    position: absolute;
+    left: -43px;
+    bottom: 20px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-right: 43px solid white;
+    border-bottom: 8px solid transparent;
+}
+.woman_helper_vitmin{
+    margin-top:25px;
+}
+input[type=number]{
+    width: 55px;
+}
+.check-every{
+    display:inline-block;
+    width:42%;
+    vertical-align:top;
+    font-weight:bold;
+    margin-top:3px;
+}
+.days-to-check{
+    display:inline-block;
+    width:47%;
+}
+.input_show_larder_btns{
+    position:absolute;
+    bottom: 5px;
+    left:59px;
+    text-align:center;
+    font-size:12px;
+}
+.input_show_larder_btns a{
+    margin: 0 5px;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak,
+.x-ng-cloak {
+    cursor:wait;
+}
+
+tr.high-protein-foods td:nth-child(1){
+    background-color: #d396a7;
+}
+tr.high-protein-foods td:nth-child(2){
+    background-color: #be627b;
+}
+tr.high-protein-foods td:nth-child(3){
+    background-color: #d396a7;
+}
+tr.high-protein-foods td:nth-child(4){
+    background-color: #e8c6d0;
+}
+
+tr.vegetables td:nth-child(1){
+    background-color: #92b49e;
+}
+tr.vegetables td:nth-child(2){
+    background-color: #669579;
+}
+tr.vegetables td:nth-child(3){
+    background-color: #92b49e;
+}
+tr.vegetables td:nth-child(4){
+    background-color: #bfd3c5;
+}
+
+tr.fruit td:nth-child(1){
+    background-color: #d3e27a;
+}
+tr.fruit td:nth-child(2){
+    background-color: #bed730;
+}
+tr.fruit td:nth-child(3){
+    background-color: #d3e27a;
+}
+tr.fruit td:nth-child(4){
+    background-color: #e5edb5;
+}
+
+tr.starchy_foods td:nth-child(1){
+    background-color: #fae280;
+}
+tr.starchy_foods td:nth-child(2){
+    background-color: #f8d835;
+}
+tr.starchy_foods td:nth-child(3){
+    background-color: #fae280;
+}
+tr.starchy_foods td:nth-child(4){
+    background-color: #fcedb8;
+}
+
+.modalMacronutrients td:nth-child(1), .modalVitMin td:nth-child(1){
+    background-color: #669579;
+}
+.modalMacronutrients td:nth-child(2), .modalVitMin td:nth-child(2){
+    background-color: #f8d835;
+}
+.modalMacronutrients td:nth-child(3), .modalVitMin td:nth-child(3){
+    background-color: #faa61a;
+}
+.modalMacronutrients td:nth-child(4), .modalVitMin td:nth-child(4){
+    background-color: #be627b;
+}
+.modalMacronutrients th, .modalVitMin th{
+    color:white
+}
+.lateral_menu img{
+    background-color:rgba(255,255,255,0.85);
+    padding:5px;
+}
+.intro-1{
+    z-index:1;
+}
+.languaje-buttons{
+    position:absolute;
+    top:300px;
+    left:180px;
+    z-index:2;
+    margin:0 auto;
+}
+.languaje-buttons button{
+    border:none;
+}
+.english_button{
+    display:inline-block;
+    background:
+url("../img/english.png")
+no-repeat;
+    width:230px;
+    height:130px;
+}
+.english_button:hover{
+    background:
+url("../img/english-hover.png")
+no-repeat;
+}
+.english_button:disabled{
+    background:
+url("../img/english-disabled.png")
+no-repeat;
+}
+.cymraeg_button{
+    display:inline-block;
+    background:
+url("../img/cymraeg.png")
+no-repeat;
+    width:230px;
+    height:130px;
+}
+.cymraeg_button:hover{
+    background:
+url("../img/cymraeg-hover.png")
+no-repeat;
+}
+.cymraeg_button:disabled{
+    background:
+url("../img/cymraeg-disabled.png")
+no-repeat;
+}
+.introduction_buttons button{
+    margin-right: 50px;
+}
+button.open-button{
+    margin-right: 5px;
+}
+button.skip-intro-button{
+    margin-right: 35px;
+}
+
+
+
+
+
+.summary_window .chart1  h2{
+    font-size:13px;
+}
+.summary_window .chart2  h2{
+    font-size:13px;
+    margin:10px 0 0;
+}
+.summary_window .chart1 chart {
+    width:540px;
+}
+.summary_window .chart2 chart{
+    margin:0;
+    padding:0;
+    height: 170px;
+}
+.flot-x-axis .tickLabel{
+    font-size:11px;
+
+
+}
+.meal_complete input{
+    visibility: hidden;
+}
+.extro_buttons{
+    display:block;
+    position: absolute;
+    bottom: 25px;
+    right: 10px;
+}
+.extro_buttons button{
+    margin-right: 50px;
+}
+.show_larder_help_text_cym{
+    width: 212px;
+    line-height:15px;
+}
+.woman_helper_bubble_first_day_complete_cym p{
+    line-height:20px;
+}
+.day_text_in_larder_cym p{
+    font-size: 35px;
+}
+.LL-button-to-the-right-main-results-window-cym{
+    font-size:14px;
+    line-height:10px;
+}
+.VitMin_legend-cym{
+        right:-5px;
+}
+.woman_helper_bubble_vitmin_1_cym{
+    line-height:16px;
+}
+.extro-about{
+ width:813px;
+ margin:10px 15px;
+}

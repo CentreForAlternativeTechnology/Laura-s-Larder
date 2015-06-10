@@ -1,0 +1,15 @@
+<div class="box">
+    <h3 translate="ABOUT_YOU_ARE_EATING" translate-values="{product_key: product.key}"></h3>
+    <ul>
+        <li>{{'FOOD_GROUP' | translate}}: {{product.food_group |uppercase | translate | lowercase}}</li>
+        <li ng-if='product.options.user_choice.origin !== "Single_value"'>{{'ORIGIN' | translate}}: {{product.options.user_choice.origin | uppercase | translate}}</li>
+        <li ng-if='product.options.user_choice.portion_size !== null'>{{'PORTION_SIZE' | translate}}: {{product.options.portion_size[product.options.user_choice.portion_size].key | translate | lowercase}}</li>
+        <li ng-if='product.options.user_choice.quantity !== null'>{{'QUANTITY' | translate}}: {{product.options.user_choice.quantity}} </li>
+        <li>{{'EMISSIONS' | translate}}: {{1000 * product.ghg | number : 2}} gCO<sub>2</sub></li>
+    </ul>
+    <div class="remove-box" class="cursor_points"><label><input type="checkbox" ng-model="remove_product_check_box"/> {{'REMOVE_PRODUCT_FROM_TABLE' | translate}}</label></div>
+    <div class='buttons product-information-buttons'>
+        <button class='LL-button' ng-click='$close()'>{{'CLOSE' | translate}}</button>
+        <button class='LL-button' ng-disabled="remove_product_check_box === false" ng-click="handleNextResults({reason: 'remove_product'})">{{'REMOVE_ITEM' | translate}}</button>
+    </div>
+</div>
